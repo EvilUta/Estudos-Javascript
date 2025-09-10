@@ -1,0 +1,1422 @@
+🧩 Visão Geral de Estruturas de dados
+
+Estruturas de dados são formas organizadas de armazenar e manipular informações em um programa de forma eficiente.
+
+Elas definem como os dados são organizados, acessados, modificados e armazenados na memória.
+
+A estrutura define onde e como os dados ficam
+
+O algoritmo define o que fazer com os dados
+
+Um bom algoritmo precisa de uma estrutura adequada, e vice-versa.
+
+| Estrutura      | Acesso | Inserção | Remoção | Ordem | Exemplo prático          |
+| -------------- | ------ | -------- | ------- | ----- | ------------------------ |
+| Array          | Rápido | Médio    | Médio   | Sim   | Lista de produtos        |
+| Lista ligada   | Lento  | Rápido   | Rápido  | Sim   | Editor de texto (ctrl+Z) |
+| Pilha          | Médio  | Rápido   | Rápido  | Sim   | Histórico de navegação   |
+| Fila           | Médio  | Rápido   | Rápido  | Sim   | Fila de impressão        |
+| Árvore binária | Médio  | Médio    | Médio   | Sim   | Auto-complete, jogos     |
+| Grafo          | Lento  | Médio    | Médio   | Não   | GPS, redes sociais       |
+| Hash Table     | Rápido | Rápido   | Rápido  | Não   | Dicionário, cache        |
+
+🎟️ FIFO – First In, First Out (Primeiro a Entrar, Primeiro a Sair)
+✅ Definição:
+FIFO é uma regra de organização de dados onde o primeiro elemento que entra é o primeiro a sair.
+🧠 Como funciona:
+Imagine uma fila de pessoas esperando para ser atendidas:
+
+A primeira pessoa que chegou é a primeira a ser atendida.
+Os outros só serão atendidos na ordem de chegada.
+
+🚀 Tipagem Fraca 
+tipos de dados são convertidos automaticamente quando necessário, mesmo que isso possa causar comportamentos inesperados.
+
+🔹 O que significa isso na prática?
+Em linguagens de tipagem fraca, você pode fazer operações entre diferentes tipos de dados,
+como string e número, e a linguagem vai tentar converter automaticamente os valores para completar a operação.
+
+🔸 Exemplo em JavaScript (linguagem de tipagem fraca):
+console.log("5" + 1); // Resultado: "51"
+console.log("5" - 1); // Resultado: 4
+console.log(true + 1); // Resultado: 2
+console.log(null + 1); // Resultado: 1
+
+Explicações:
+
+"5" + 1 → o 1 vira string → "5" + "1" → "51"
+
+"5" - 1 → o "5" vira número → 5 - 1 → 4
+
+true + 1 → true vira 1 → 1 + 1 → 2
+
+null + 1 → null vira 0 → 0 + 1 → 1
+
+✅ Vantagens:
+Código mais flexível e menos verboso.
+
+Pode acelerar a escrita de scripts simples.
+
+⚠️ Desvantagens:
+Pode causar bugs difíceis de perceber, pois a linguagem faz suposições automáticas sobre os tipos.
+
+Menor previsibilidade no comportamento do programa.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+⚡ Number.isInteger(valor)
+é um método do objeto Number em JavaScript que verifica se um valor é um número inteiro.
+
+📦 Exemplo: 
+Number.isInteger(10);         // true
+Number.isInteger(10.5);       // false
+Number.isInteger("10");       // false (é string, não número)
+Number.isInteger(NaN);        // false
+Number.isInteger(Infinity);   // false
+Number.isInteger(0);          // true
+
+🧠 Observações:
+Esse método não converte o valor, ou seja, se passar uma string "10", o retorno será false.
+
+É útil para validar entradas numéricas que precisam ser inteiras.
+
+⚡ toFixed(valor)
+ um método em JavaScript usado para formatar números com um número fixo de casas decimais.
+
+📦 Exemplo:
+let num = 12.3456;
+
+console.log(num.toFixed(2));  // "12.35"
+console.log(num.toFixed(0));  // "12"
+console.log(num.toFixed(4));  // "12.3456"
+console.log(num.toFixed(6));  // "12.345600"
+
+-> O numero que você colocar vai impimir as casas decimais 
+
+⚡ toString()
+é usado para converter um valor (geralmente um número, booleano ou objeto) em uma string.
+
+📦 Exemplo:
+let numero = 123;
+let texto = numero.toString();
+
+console.log(texto);        // "123"
+console.log(typeof texto); // string
+
+⚡ Math
+ um objeto embutido que fornece propriedades e métodos para realizar operações matemáticas
+ — como arredondar, gerar números aleatórios, calcular potências, raízes, etc.
+
+📦 Exemplo:
+let x = Math.sqrt(25);  // 5
+let y = Math.pow(2, 3); // 8
+let z = Math.random();  // número aleatório entre 0 e 1
+
+🔹 Principais métodos de Math:
+
+| Método               | O que faz                             | Exemplo                     |
+| -------------------- | ------------------------------------- | --------------------------- |
+| `Math.round(x)`      | Arredonda para o inteiro mais próximo | `Math.round(4.7)` → `5`     |
+| `Math.floor(x)`      | Arredonda **para baixo**              | `Math.floor(4.7)` → `4`     |
+| `Math.ceil(x)`       | Arredonda **para cima**               | `Math.ceil(4.1)` → `5`      |
+| `Math.random()`      | Retorna número entre `0` e `1`        | `Math.random()` → `0.42`    |
+| `Math.max(a, b,...)` | Maior número                          | `Math.max(2, 5, 10)` → `10` |
+| `Math.min(a, b,...)` | Menor número                          | `Math.min(2, 5, 10)` → `2`  |
+| `Math.sqrt(x)`       | Raiz quadrada                         | `Math.sqrt(9)` → `3`        |
+| `Math.pow(x, y)`     | Potência                              | `Math.pow(2, 3)` → `8`      |
+| `Math.abs(x)`        | Valor absoluto (sem sinal)            | `Math.abs(-7)` → `7`        |
+| `Math.trunc(x)`      | Remove as casas decimais              | `Math.trunc(4.9)` → `4`     |
+
+-------------------------------------------------------------------------------------------------------------------------------
+⚡ string
+ é o tipo de dado usado para representar texto.
+ Strings são sequências de caracteres e podem ser declaradas com aspas simples, aspas duplas ou crase (para template strings).
+
+📦 Exemplo: 
+let nome1 = "Renan";
+let nome2 = 'Gustavo';
+let nome3 = `Olá, ${nome1}`;  // template string (pode usar variáveis dentro)
+
+🔹 Principais métodos de string:
+
+| Método                  | O que faz                                        | Exemplo                                           |
+| ----------------------- | ------------------------------------------------ | ------------------------------------------------- |
+| `length`                | Tamanho da string                                | `"Olá".length` → `3`                              |
+| `toUpperCase()`         | Tudo maiúsculo                                   | `"abc".toUpperCase()` → `"ABC"`                   |
+| `toLowerCase()`         | Tudo minúsculo                                   | `"ABC".toLowerCase()` → `"abc"`                   |
+| `charAt(i)`             | Retorna o caractere na posição `i`               | `"abc".charAt(1)` → `"b"`                         |
+| `indexOf("texto")`      | Posição onde começa o texto (ou -1 se não tiver) | `"banana".indexOf("na")` → `2`                    |
+| `includes("texto")`     | Retorna `true` se contém                         | `"banana".includes("na")` → `true`                |
+| `replace("de", "para")` | Substitui texto                                  | `"dia bom".replace("bom", "ruim")` → `"dia ruim"` |
+| `slice(início, fim)`    | Recorta parte da string                          | `"abcdef".slice(1, 4)` → `"bcd"`                  |
+| `split("separador")`    | Divide a string em array                         | `"a,b,c".split(",")` → `["a", "b", "c"]`          |
+| `trim()`                | Remove espaços no início e fim                   | `"  texto  ".trim()` → `"texto"`                  |
+
+⚡ booleano
+presentam verdadeiro ou falso, ou seja, têm apenas dois valores possíveis:
+true  // verdadeiro
+false // falso
+
+✅ Exemplos básicos:
+let estaChovendo = true;
+let temSol = false;
+
+console.log(estaChovendo); // true
+console.log(temSol);       // false
+
+🔁 Uso comum: em condições (if, while, etc.)
+let idade = 18;
+let maiorDeIdade = idade >= 18; // true
+
+if (maiorDeIdade) {
+  console.log("Você pode entrar!");
+} else {
+  console.log("Entrada proibida!");
+}
+
+⚡ Array
+Um array (ou vetor) é uma estrutura de dados usada para armazenar vários valores em uma única variável.
+Em vez de declarar várias variáveis, você pode usar um array para guardar uma lista de itens.
+
+Os arrays em JavaScript são dinâmicos (podem mudar de tamanho).
+Os elementos são indexados a partir do zero (0).
+Podem armazenar valores de diferentes tipos (números, strings, objetos, funções etc).
+
+📦 Exemplo:
+const frutas = ['maçã', 'banana', 'laranja'];
+console.log(frutas[0]); // 'maçã'
+console.log(frutas[1]); // 'banana'
+
+🛠 Métodos úteis:
+
+| Método       | O que faz                    |
+| ------------ | ---------------------------- |
+| `push()`     | Adiciona no final            |
+| `pop()`      | Remove o último              |
+| `shift()`    | Remove o primeiro            |
+| `unshift()`  | Adiciona no começo           |
+| `length`     | Retorna o tamanho            |
+| `indexOf()`  | Acha a posição de um item    |
+| `includes()` | Verifica se contém o item    |
+| `slice()`    | Retorna uma parte do array   |
+| `splice()`   | Adiciona ou remove elementos |
+
+⚡ Objeto 
+Ele representa algo do mundo real com suas características (propriedades) e ações (métodos).
+
+📦 Exemplo básico:
+const pessoa = {
+  nome: 'Renan',
+  idade: 20,
+  estudante: true
+};
+
+console.log(pessoa.nome);    // 'Renan'
+console.log(pessoa['idade']); // 20
+
+⚡ Null e Undefined
+
+🧪 Undefined
+É um valor automático dado a uma variável que foi declarada, mas não recebeu valor ainda.
+
+📦 Exemplo básico:
+let nome;
+console.log(nome); // undefined
+
+🧪 Null
+É um valor intencional que você mesmo define para indicar que não há valor.
+
+📦 Exemplo básico:
+let idade = null;
+console.log(idade); // null
+
+⚡ Funções 
+Você pode definir uma função uma vez e usar (chamar) quantas vezes quiser.
+
+🧱 Estrutura básica:
+function nomeDaFuncao(parâmetros) {
+  // código a ser executado
+  return resultado;
+}
+
+✅ Exemplo simples:
+function somar(a, b) {
+  return a + b;
+}
+
+console.log(somar(3, 4)); // 7
+
+🧠 Conceitos importantes:
+| Termo      | O que é                              |
+| ---------- | ------------------------------------ |
+| `function` | Palavra-chave para declarar a função |
+| Parâmetros | Valores que a função **recebe**      |
+| `return`   | Valor que a função **devolve**       |
+| Chamada    | Quando você **executa** a função     |
+
+🧪 Função sem retorno:
+function mostrarMensagem() {
+  console.log("Bem-vindo!");
+}
+mostrarMensagem(); // Apenas mostra algo, não retorna
+
+🧪 Função com retorno: 
+function soma (a, b = 0) {
+    return a + b // retorna valor da soma
+}
+
+console.log(soma(30,40));
+
+⚡ Função com arrow function (=>)
+const soma = (a, b) => {
+    return a + b;
+}
+
+🧩 Arrow function com retorno implícito
+const subtracao = (a, b) => a - b;
+
+
+🔑 Resumo das diferenças:
+| Forma                       | Exemplo                              | Usa `function` | Usa `=>` | `return` obrigatório? |
+| --------------------------- | ------------------------------------ | -------------- | -------- | --------------------- |
+| Função anônima tradicional  | `const f = function(a, b) { ... }`   | ✅              | ❌        | ✅ se quiser retorno   |
+| Arrow function com bloco    | `const f = (a, b) => { return ... }` | ❌              | ✅        | ✅                     |
+| Arrow com retorno implícito | `const f = (a, b) => a + b`          | ❌              | ✅        | ❌ (é implícito)       |
+
+⚡ let
+let é uma palavra-chave usada para declarar variáveis em JavaScript, introduzida no ES6 (2015).
+
+📌 Por que usar let?
+Porque ela resolve problemas do var, como escopo e hoisting confusos.
+
+✅ 1. Escopo de bloco ({ })
+Variáveis declaradas com let só existem dentro do bloco onde foram criadas.
+{
+  let nome = "Renan";
+  console.log(nome); // Renan
+}
+console.log(nome); // ❌ Erro: nome is not defined
+
+✅ 2. Pode mudar de valor (reatribuição)
+let idade = 20;
+idade = 21;
+console.log(idade); // 21
+
+✅ 3. Não pode redeclarar no mesmo escopo
+let cor = "azul";
+// let cor = "vermelho"; // ❌ Erro: já foi declarada
+cor = "vermelho"; // ✅ Só reatribuir
+
+✅ 4. Hoisting com let existe, mas não é utilizável antes da linha de declaração
+console.log(x); // ❌ Erro: Cannot access 'x' before initialization
+let x = 5;
+
+🧠 Comparação rápida:
+| Característica  | `var`           | `let`                 |
+| --------------- | --------------- | --------------------- |
+| Escopo          | Função          | **Bloco**             |
+| Pode redeclarar | ✅              | ❌                   |
+| Pode reatribuir | ✅              | ✅                   |
+| Hoisting        | Sim (acessível) | Sim (mas inacessível) |
+| Introduzido em  | Muito antigo    | ES6 (2015)            |
+
+⚡ Loop
+ são usados para executar um bloco de código várias vezes.
+
+🔁 Tipos principais de loops:
+1. for
+2. while
+3. do...while
+4. for...of
+5. for...in
+
+🔹 1. for (mais comum)
+for (inicialização; condição; incremento) {
+  // código a ser repetido
+}
+
+✅ Exemplo:
+for (let i = 0; i < 5; i++) {
+  console.log("Contador:", i);
+}
+
+Vai de 0 até 4.
+
+🔹 2. while (repete enquanto a condição for verdadeira)
+
+✅ Exemplo:
+let i = 0;
+while (i < 3) {
+  console.log("i é", i);
+  i++;
+}
+
+Cuidado: se não atualizar a variável, pode travar (loop infinito).
+
+🔹 3. do...while (executa ao menos uma vez)
+
+✅ Exemplo:
+let i = 0;
+do {
+  console.log("Executado ao menos uma vez:", i);
+  i++;
+} while (i < 2);
+
+🔹 4. for...of (para arrays e strings)
+
+✅ Exemplo:
+const nomes = ['Ana', 'Bruno', 'Carlos'];
+
+for (let nome of nomes) {
+  console.log(nome);
+}
+
+🔹 5. for...in (para objetos)
+
+✅ Exemplo:
+const pessoa = {
+  nome: "Renan",
+  idade: 20
+};
+
+for (let chave in pessoa) {
+  console.log(chave, "->", pessoa[chave]);
+}
+
+🚫 Cuidado com loops infinitos:
+
+✅ Exemplo:
+while (true) {
+  // Nunca para! Use break ou condições bem definidas
+}
+
+🧠 Dicas:
+🔹 Use for quando souber quantas vezes quer repetir.
+🔹 Use while quando não souber ao certo, mas tiver uma condição.
+🔹 Use for...of para arrays.
+🔹 Use for...in para objetos.
+
+⚡ Hoisting 
+move certas declarações para o topo automaticamente, mesmo que você as escreva no meio ou no final do código.
+
+🧪 Exemplo clássico com var:
+console.log(nome); // undefined
+var nome = "Renan";
+
+Por quê isso funciona?
+O JavaScript move a declaração da variável nome para o topo assim:
+var nome;         // ← hoisting
+console.log(nome); // undefined
+nome = "Renan";
+🟡 A variável foi criada, mas ainda não atribuída, por isso imprime undefined.
+
+❗Cuidado: Hoisting não move a atribuição, só a declaração.
+
+✅ Hoisting com function (funções declaradas):
+dizerOi(); // "Oi!"
+
+function dizerOi() {
+  console.log("Oi!");
+}
+Isso funciona porque funções declaradas são completamente içadas (declaração + corpo).
+
+🔴 Mas com let ou const, dá erro!
+console.log(nome); // ❌ ReferenceError
+let nome = "Renan";
+
+🧠 Resumo:
+| Tipo                                                      | Hoisting? | Valor antes da linha | Observação                       |
+| --------------------------------------------------------- | --------- | -------------------- | -------------------------------- |
+| `var`                                                     | ✅         | `undefined`           | Só a **declaração** é içada      |
+| `let`                                                     | ✅         | ❌ Erro               | Fica na "zona morta" até a linha |
+| `const`                                                   | ✅         | ❌ Erro               | Também entra na "zona morta"     |
+| `function`                                                | ✅         | ✅ Funciona           | Declaração e corpo são içados    |
+| `function expression` ou `arrow function` com `const/let` | ❌         | ❌ Erro               | Não funciona antes da linha      |
+
+⚡  Par Nome/Valor
+🔹 É uma forma de representar dados onde você tem:
+🔹 Um nome (chave) → que identifica a informação
+🔹 Um valor → que é a informação em si
+
+🧱 Sintaxe geral:
+const pessoa = {
+  nome: "Renan",
+  idade: 20
+};
+Isso é um objeto com dois pares nome/valor.
+
+📌 Aplicações comuns
+🔹 1. Em objetos:
+const carro = {
+  modelo: "Gol",
+  ano: 2020,
+  ligado: true
+};
+Aqui temos 3 pares nome/valor:
+modelo → "Gol"
+ano → 2020
+ligado → true
+
+📌 2. Em parâmetros de função:
+function apresentar(nome, idade) {
+  console.log("Nome:", nome);   // Par: nome → valor passado
+  console.log("Idade:", idade); // Par: idade → valor passado
+}
+
+apresentar("João", 30);
+Os nomes dos parâmetros viram chaves internas, e os argumentos são os valores.
+
+📌 3. Em arrays de objetos:
+const alunos = [
+  { nome: "Ana", nota: 9 },
+  { nome: "Pedro", nota: 7 }
+];
+Cada aluno é um objeto com pares nome e nota.
+
+🎯 Por que isso é importante?
+Porque:
+
+Tudo em JavaScript é baseado em objetos.
+A comunicação entre dados (por exemplo, com APIs) é feita via pares nome/valor em JSON.
+
+📦 JSON é só Par Nome/Valor
+{
+  "produto": "Camisa",
+  "preco": 49.9,
+  "disponivel": true
+}
+
+🧠 Em resumo:
+🔹 Nome = identificador
+🔹 Valor = dado associado
+🔹 Esse conceito é a base da estrutura de objetos em JavaScript (e JSON)
+
+⚡  Destructuring
+Destructuring é uma forma de extrair valores de arrays ou objetos e atribuí-los a variáveis de forma rápida e clara.
+
+🧱 Exemplo básico:
+const pessoa = {
+  nome: "Renan",
+  idade: 20,
+  cidade: "São Paulo"
+};
+
+// Extraindo com destructuring:
+const { nome, idade } = pessoa;
+
+console.log(nome);  // "Renan"
+console.log(idade); // 20
+
+📌 Explicação:
+const { nome, idade } = pessoa pega os valores das chaves nome e idade do objeto pessoa e os atribui a variáveis com o mesmo nome.
+
+🧩 Também dá pra renomear:
+const { nome: n, idade: i } = pessoa;
+
+console.log(n); // "Renan"
+console.log(i); // 20
+
+📦 2. Destructuring com arrays
+const numeros = [10, 20, 30];
+
+const [a, b] = numeros;
+
+console.log(a); // 10
+console.log(b); // 20
+
+📌 Importante:
+A ordem importa! O a recebe o primeiro valor (10), o b o segundo (20).
+
+➕ Pular elementos:
+const [primeiro, , terceiro] = [1, 2, 3];
+console.log(primeiro); // 1
+console.log(terceiro); // 3
+
+🎯 Usos comuns:
+✅ Em parâmetros de função:
+function exibir({ nome, idade }) {
+  console.log(`${nome} tem ${idade} anos`);
+}
+
+exibir({ nome: "João", idade: 25 });
+
+✅ Em funções com array:
+function somar([a, b]) {
+  return a + b;
+}
+
+console.log(somar([2, 3])); // 5
+
+✅ Com valores padrão:
+const { nome = "Desconhecido", idade = 0 } = {};
+console.log(nome); // "Desconhecido"
+
+🧠 Resumo:
+| Tipo   | Exemplo                          | Extração                   |
+| ------ | -------------------------------- | -------------------------- |
+| Objeto | `{ nome, idade } = pessoa`       | Por chave                  |
+| Array  | `[a, b] = numeros`               | Por posição                |
+| Função | `function({nome})` ou `([a, b])` | Diretamente nos parâmetros |
+
+
+⚡ Aritméticos
+Operadores aritméticos são usados para realizar operações matemáticas com valores numéricos.
+
+🧮 Principais operadores:
+| Operador | Nome           | Exemplo        | Resultado   |
+| -------- | -------------- | -------------- | ----------- |
+| `+`      | Adição         | `5 + 3`        | `8`         |
+| `-`      | Subtração      | `5 - 3`        | `2`         |
+| `*`      | Multiplicação  | `5 * 3`        | `15`        |
+| `/`      | Divisão        | `6 / 2`        | `3`         |
+| `%`      | Módulo (resto) | `7 % 2`        | `1`         |
+| `**`     | Exponenciação  | `2 ** 3`       | `8`         |
+| `++`     | Incremento     | `x++` ou `++x` | `x = x + 1` |
+| `--`     | Decremento     | `x--` ou `--x` | `x = x - 1` |
+
+📌 Exemplos práticos:
+let a = 10;
+let b = 3;
+
+console.log(a + b);  // 13
+console.log(a - b);  // 7
+console.log(a * b);  // 30
+console.log(a / b);  // 3.333...
+console.log(a % b);  // 1
+console.log(a ** b); // 1000
+
+// Incremento e decremento
+let x = 5;
+console.log(x++); // 5 (primeiro mostra, depois incrementa)
+console.log(x);   // 6
+console.log(++x); // 7 (incrementa antes de mostrar)
+
+⚠️ Atenção:
+Operações com tipos não numéricos podem resultar em NaN (Not a Number):
+console.log("abc" * 2); // NaN
+
+A divisão por zero em JavaScript não dá erro, mas resulta em Infinity:
+console.log(10 / 0); // Infinity
+
+⚡ Operadores Relacionais
+Operadores relacionais comparam valores e retornam um resultado booleano: true ou false.
+
+📘 Principais operadores:
+| Operador | Significado                           | Exemplo     | Resultado |
+| -------- | ------------------------------------- | ----------- | --------- |
+| `>`      | Maior que                             | `5 > 3`     | `true`    |
+| `<`      | Menor que                             | `5 < 3`     | `false`   |
+| `>=`     | Maior ou igual                        | `5 >= 5`    | `true`    |
+| `<=`     | Menor ou igual                        | `3 <= 2`    | `false`   |
+| `==`     | Igual (valor)                         | `5 == "5"`  | `true`    |
+| `!=`     | Diferente (valor)                     | `5 != "5"`  | `false`   |
+| `===`    | Estritamente igual (valor e tipo)     | `5 === "5"` | `false`   |
+| `!==`    | Estritamente diferente (valor e tipo) | `5 !== "5"` | `true`    |
+
+🧪 Exemplos práticos:
+console.log(10 > 5);    // true
+console.log(10 < 5);    // false
+console.log(10 >= 10);  // true
+console.log(10 <= 9);   // false
+
+// Comparações com == e ===
+console.log(5 == '5');   // true (só compara o valor)
+console.log(5 === '5');  // false (valor igual, mas tipos diferentes)
+
+// Comparações com != e !==
+console.log(5 != '5');   // false
+console.log(5 !== '5');  // true
+
+⚠️ Dica importante:
+Sempre que possível, prefira usar === e !== no lugar de == e !=, pois evita erros de tipo implícito.
+
+⚡ Operadores Lógicos 
+Operadores lógicos servem para combinar ou inverter expressões booleanas
+usados principalmente em estruturas de decisão (if, while, etc).
+
+✅ Principais operadores:
+| Operador | Nome          | Exemplo         | Resultado                                 |        |   |         |                                  |
+| -------- | ------------- | --------------- | ----------------------------------------- | ------ | - | ------- | -------------------------------- |
+| `&&`     | **E** (AND)   | `true && false` | `false` (os dois têm que ser verdadeiros) |        |   |         |                                  |
+| \`       |               | \`              | **OU** (OR)                               | \`true |   | false\` | `true` (basta um ser verdadeiro) |
+| `!`      | **NÃO** (NOT) | `!true`         | `false` (inverte o valor)                 |        |   |         |                                  |
+
+🧪 Exemplos práticos:
+// AND - só retorna true se os dois forem true
+console.log(true && true);   // true
+console.log(true && false);  // false
+
+// OR - retorna true se pelo menos um for true
+console.log(false || true);  // true
+console.log(false || false); // false
+
+// NOT - inverte o valor
+console.log(!true);  // false
+console.log(!false); // true
+
+🧠 Curiosidades:
+1. Avaliação de curto-circuito:
+JavaScript avalia da esquerda pra direita, e pode parar cedo se já souber o resultado:
+false && qualquerCoisa(); // "qualquerCoisa()" nem é executada
+true || qualquerCoisa();  // idem
+
+2. && e || não retornam apenas true ou false:
+Eles retornam o valor mesmo, se não forem booleanos:
+console.log(0 || 'Texto');      // 'Texto' (0 é falsy)
+console.log('Oi' && 123);       // 123 ('Oi' é truthy, continua)
+console.log(null || 'padrão');  // 'padrão'
+
+⚠️ Valores "falsy" no JavaScript:
+Esses são tratados como false em contextos booleanos:
+
+false
+
+0
+
+'' (string vazia)
+
+null
+
+undefined
+
+NaN
+
+Tudo o resto é truthy (inclusive [], {}, "0", etc.).
+
+⚡ Unários
+Operadores unários são aqueles que atuam sobre apenas um operando. Eles modificam ou retornam um valor com base em uma única variável.
+
+🧠 Principais Operadores Unários
+| Operador | Nome                    | Exemplo                      | Explicação                                                        |
+| -------- | ----------------------- | ---------------------------- | ----------------------------------------------------------------- |
+| `!`      | Lógico de negação (NOT) | `!true` → `false`            | Inverte o valor booleano.                                         |
+| `typeof` | Tipo de dado            | `typeof "abc"` → `"string"`  | Retorna o tipo da variável.                                       |
+| `delete` | Remover propriedade     | `delete obj.nome`            | Remove uma propriedade de um objeto.                              |
+| `++`     | Incremento              | `x++` ou `++x`               | Soma 1 ao valor. Pré ou pós-incremento.                           |
+| `--`     | Decremento              | `x--` ou `--x`               | Subtrai 1 do valor. Pré ou pós-decremento.                        |
+| `+`      | Conversão para número   | `+"123"` → `123`             | Converte string para número.                                      |
+| `-`      | Negação numérica        | `-5` → `-5`, `-"10"` → `-10` | Inverte o sinal do número (ou converte string numérica negativa). |
+| `void`   | Retorna `undefined`     | `void 0`                     | Avalia uma expressão e retorna `undefined`. Pouco usado.          |
+
+🎯 Exemplos Práticos
+let a = true;
+console.log(!a); // false
+
+let x = "10";
+console.log(+x); // 10 → converte para número
+
+let obj = { nome: "Renan", idade: 20 };
+delete obj.nome;
+console.log(obj); // { idade: 20 }
+
+let n = 5;
+console.log(++n); // 6 (pré-incremento)
+console.log(n--); // 6 (pós-decremento, mas depois vira 5)
+
+⚡Ternário
+O operador ternário é uma forma curta e prática de escrever condicionais do tipo if/else.
+Ele tem três partes, por isso o nome ternário.
+
+🧠 Sintaxe:
+condição ? valor_se_verdadeiro : valor_se_falso;
+
+📌 Exemplos:
+const idade = 18;
+const podeBeber = idade >= 18 ? "Sim" : "Não";
+console.log(podeBeber); // "Sim"
+
+const nota = 7.5;
+const resultado = nota >= 7 ? "Aprovado" : "Reprovado";
+console.log(resultado); // "Aprovado"
+
+🎯 Com ternário aninhado (não recomendado para códigos longos):
+const nota = 9;
+const conceito = nota >= 9 ? "A" : nota >= 7 ? "B" : "C";
+console.log(conceito); // "A"
+
+⚠️ Dica:
+Use o ternário para condições simples. Para lógica mais complexa ou várias condições, use if/else para deixar o código mais legível.
+
+⚡ Switch
+O switch é uma estrutura de controle de fluxo em JavaScript (e em várias outras linguagens)
+Usada para escolher entre múltiplos caminhos com base no valor de uma variável ou expressão.
+
+✅ Sintaxe básica:
+switch (expressao) {
+    case valor1:
+        // bloco de código se expressao === valor1
+        break
+    case valor2:
+        // bloco de código se expressao === valor2
+        break
+    default:
+        // bloco de código se nenhum dos cases for correspondente
+}
+
+📌 Explicando:
+expressao: é avaliada uma vez.
+
+🔹 case valorX: compara o resultado da expressão com valorX usando ===.
+
+🔹 break: impede que o código continue executando os outros cases (isso se chama "fall through").
+
+🔹 default: executa se nenhum case for correspondente (opcional, mas recomendado).
+
+📘 Exemplo prático:
+let nota = 8
+
+switch (Math.floor(nota)) {
+    case 10:
+    case 9:
+        console.log("Quadro de Honra")
+        break
+    case 8:
+    case 7:
+        console.log("Aprovado")
+        break
+    case 6:
+    case 5:
+    case 4:
+        console.log("Recuperação")
+        break
+    default:
+        console.log("Reprovado")
+}
+
+Resultado:
+Se nota = 8, o resultado será: Aprovado
+
+⚠️ Sem o break:
+Sem o break, ele continua executando os próximos blocos, mesmo que o case correto já tenha sido encontrado.
+
+let cor = 'azul'
+
+switch (cor) {
+    case 'azul':
+        console.log('Você escolheu azul')
+    case 'vermelho':
+        console.log('Você escolheu vermelho')
+}
+
+Resultado
+Você escolheu azul  
+Você escolheu vermelho  ← (isso aconteceu por falta do `break`)
+
+⚡ while
+O while é uma estrutura de repetição (loop) no JavaScript que executa um bloco de código repetidamente enquanto uma condição for verdadeira.
+
+✅ Sintaxe
+while (condição) {
+    // código a ser executado enquanto a condição for true
+}
+
+📘 Exemplo simples:
+let contador = 1
+
+while (contador <= 5) {
+    console.log("Contando: " + contador)
+    contador++  // aumenta o contador em 1 a cada volta
+}
+
+Resultado:
+Contando: 1
+Contando: 2
+Contando: 3
+Contando: 4
+Contando: 5
+
+⚠️ Cuidado com loops infinitos
+Se você esquecer de atualizar a variável que muda a condição, o while nunca para e trava o programa:
+let i = 1
+while (i <= 5) {
+    console.log(i)
+    // falta o i++ aqui
+}
+
+🔄 Comparação com for
+Esse while:
+
+let i = 0
+while (i < 3) {
+    console.log(i)
+    i++
+}
+
+É equivalente a esse for:
+
+for (let i = 0; i < 3; i++) {
+    console.log(i)
+}
+
+📌 Exemplo prático:
+
+let senha = ""
+
+while (senha !== "1234") {
+    senha = prompt("Digite a senha correta:")
+}
+
+alert("Acesso liberado!")
+
+⚠️ Esse exemplo só funciona no navegador, pois usa prompt.
+
+⚡ O do while é uma estrutura de repetição muito parecida com o while, mas com uma diferença importante:
+
+Ele executa o bloco de código primeiro, e só depois testa a condição.
+
+✅ Sintaxe:
+do {
+    // código a ser executado
+} while (condição)
+
+📌 Diferença entre while e do...while:
+| Tipo         | Verifica a condição antes? | Garante ao menos uma execução? |
+| ------------ | -------------------------- | ------------------------------ |
+| `while`      | Sim                        | Não                            |
+| `do...while` | Não (executa antes)        | Sim                            |
+
+📘 Exemplo prático:
+let senha
+
+do {
+    senha = prompt("Digite a senha:")
+} while (senha !== "1234")
+
+alert("Acesso permitido")
+
+Mesmo que a senha já esteja correta, o do...while roda pelo menos uma vez.
+
+🔄 Exemplo simples com número:
+let numero = 0
+
+do {
+    console.log("Número: " + numero)
+    numero++
+} while (numero < 3)
+
+Resultado:
+Número: 0
+Número: 1
+Número: 2
+
+🧠 Resumo:
+while: testa antes, pode não executar nenhuma vez.
+
+do...while: executa primeiro, testa depois.
+
+⚡ For
+Estrutura de repetição
+
+🔁 1. Contando de 1 a 10
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+
+⚡ For / IN
+É um tipo específico de laço para iterar sobre as chaves (nomes de propriedades) de um objeto.
+
+A estrutura básica é:
+for (let chave in objeto) {
+    console.log(chave);         // nome da propriedade
+    console.log(objeto[chave]); // valor da propriedade
+}
+
+Exemplo com objeto:
+const pessoa = {
+    nome: "Renan",
+    idade: 20,
+    cidade: "São Paulo"
+};
+
+for (let prop in pessoa) {
+    console.log(`${prop}: ${pessoa[prop]}`);
+}
+
+Saída:
+nome: Renan
+idade: 20
+cidade: São Paulo
+
+
+📌 Diferente do for...of
+
+for...in → percorre índices ou nomes de propriedades.
+
+for...of → percorre valores diretamente (funciona com arrays, strings, etc.).
+
+
+🧠 Exemplo com array:
+const frutas = ["maçã", "banana", "uva"];
+
+for (let i in frutas) { // i = índice
+    console.log(i, frutas[i]);
+}
+
+for (let fruta of frutas) { // fruta = valor
+    console.log(fruta);
+}
+
+⚡ 'Break / continue'
+break e continue são usados dentro de laços (for, while, do...while) para controlar o fluxo de execução, mas eles fazem coisas bem diferentes:
+
+1. break — sai completamente do laço
+Quando o JavaScript encontra break, ele para o loop na hora e pula para a próxima instrução depois dele.
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+        break; // Sai do laço quando i for 3
+    }
+    console.log(i);
+}
+
+console.log("Fim");
+
+Saída:
+1
+2
+Fim
+O 3 e os números seguintes não são executados porque o loop foi interrompido.
+
+2. continue — pula para a próxima repetição
+O continue não sai do laço, mas pula o resto do código naquela iteração e vai direto para a próxima.
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+        continue; // Pula o resto quando i for 3
+    }
+    console.log(i);
+}
+
+console.log("Fim");
+
+Saída:
+1
+2
+4
+5
+Fim
+Aqui o 3 foi "ignorado", mas o loop continuou normalmente.
+
+📌 Resumo rápido:
+
+break → sai do loop completamente.
+
+continue → pula apenas aquela volta e segue para a próxima.
+
+    ⚡⚡ Função ⚡⚡
+
+Funções em JavaScript são blocos de código reutilizáveis que executam uma tarefa específica. Elas podem:
+
+📌 Ser declaradas de forma tradicional:
+function soma(a, b) { return a + b }
+ 
+📌 Ser atribuídas a variáveis (funções anônimas):
+const soma = function(a, b) { return a + b }
+
+📌 Usar arrow functions para sintaxe mais curta:
+const soma = (a, b) => a + b
+
+🔹 Ser passadas como argumento para outras funções ou retornadas por elas (funções de primeira classe e de ordem superior).
+
+🔹 Ser armazenadas em arrays, objetos, ou variáveis.
+
+🔹 Podem ter parâmetros (entradas) e valores de retorno (saídas) usando return.
+
+🔹 Se nenhum valor for retornado, a função retorna undefined.
+
+⚡ This e Bind 
+
+1️⃣ O que é this
+O this é uma referência que aponta para quem está chamando a função no momento da execução.
+O valor de this não é fixo — ele depende de como a função foi chamada.
+
+Exemplos:
+const pessoa = {
+    nome: "Renan",
+    falar() {
+        console.log(this.nome);
+    }
+};
+
+pessoa.falar(); // "Renan" → this = pessoa
+
+🔹 Se você tirar a função do objeto:
+const falarFora = pessoa.falar;
+falarFora(); // undefined → this não aponta mais para "pessoa"
+
+-> Aqui o this perde o contexto e vira undefined (modo estrito) ou window (modo solto no navegador).
+
+2️⃣ Como fixar o this com bind
+O .bind() cria uma nova função onde o this sempre vai apontar para o objeto que você escolher.
+const falarFixo = pessoa.falar.bind(pessoa);
+falarFixo(); // "Renan" → this sempre será pessoa
+
+3️⃣ Diferença entre bind, call e apply
+bind(obj) → devolve uma nova função com o this preso no obj.
+
+call(obj, arg1, arg2, ...) → executa a função imediatamente com o this definido.
+
+apply(obj, [args]) → igual ao call, mas argumentos em array.
+
+exemplo:
+function mostrar(a, b) {
+    console.log(this.nome, a, b);
+}
+
+const pessoa2 = { nome: "João" };
+
+mostrar.call(pessoa2, 1, 2);  // João 1 2
+mostrar.apply(pessoa2, [1, 2]); // João 1 2
+const nova = mostrar.bind(pessoa2);
+nova(1, 2); // João 1 2
+
+💡 Resumo da lógica do this:
+
+🔹 Quem chama → define o this.
+
+🔹 Se perder o objeto que chamou → perde o this.
+
+🔹 Use bind para prender o this permanentemente.
+
+⚡ Arrow
+1️⃣ Sintaxe básica
+Uma arrow function é uma forma mais curta de escrever funções:
+// Função normal
+function soma(a, b) {
+    return a + b;
+}
+
+// Arrow function
+const soma2 = (a, b) => a + b;
+
+🔹 Se tiver uma única expressão, o return é implícito.
+
+🔹 Se tiver mais de uma linha, usa chaves {} e precisa do return explícito:
+const soma3 = (a, b) => {
+    const resultado = a + b;
+    return resultado;
+}
+
+🔹 Para um único parâmetro, pode omitir os parênteses:
+const quadrado = x => x * x;
+
+2️⃣ Diferença principal: o this
+🔹 A maior diferença da arrow function é que ela não cria seu próprio this.
+
+🔹 Ela herda o this do contexto onde foi definida.
+
+🔹 Isso é ótimo para callbacks, timers, eventos, etc.
+Exemplo com setInterval:
+function Pessoa() {
+    this.idade = 0;
+
+    // Arrow function mantém o 'this' da função Pessoa
+    setInterval(() => {
+        this.idade++;
+        console.log(this.idade);
+    }, 1000);
+}
+
+new Pessoa();
+Aqui, this.idade funciona corretamente, porque a arrow function não muda o this, diferente de uma função normal.
+
+3️⃣ Outras características
+Arrow functions não podem ser usadas como construtoras (new ArrowFunction() dá erro).
+
+Elas não têm arguments, então para acessar os argumentos usa ...rest:
+const soma = (...nums) => nums.reduce((a, b) => a + b);
+
+💡 Resumo prático:
+
+🔹 Sintaxe curta.
+
+🔹 this herda do contexto, não cria novo.
+
+🔹 Bom para funções curtas, callbacks, timers e eventos.
+
+⚡ Funções anônimas ou Função sem nome
+Elas normalmente são usadas quando você precisa criar uma função rápida, que será passada como argumento ou atribuída a uma variável,
+mas não precisa ser reutilizada pelo nome.
+
+📌 Sintaxe básica
+// Função anônima atribuída a uma variável
+const soma = function(a, b) {
+    return a + b;
+};
+
+console.log(soma(3, 4)); // 7
+
+📌 Características principais
+
+🔹 Sem identificador → não possuem nome próprio.
+
+🔹 Normalmente atribuídas a variáveis, constantes ou propriedades de objetos.
+
+🔹 Muito usadas como callbacks (funções passadas para outras funções).
+
+🔹 Podem ser funções tradicionais ou arrow functions.
+
+📌 Exemplos comuns
+1. Callback em setTimeout
+setTimeout(function() {
+    console.log("Executou após 2 segundos");
+}, 2000);
+
+2. Função em um evento
+document.querySelector("#btn").addEventListener("click", function() {
+    alert("Botão clicado!");
+});
+
+3. Arrow Function (forma mais curta)
+const dobro = (n) => n * 2;
+console.log(dobro(5)); // 10
+
+💡 Quando usar?
+
+🔹 Quando a função é simples e não será reutilizada em outro lugar.
+
+🔹 Quando está servindo de parâmetro para outra função (callback).
+
+🔹 Quando você quer escrever menos código e evitar declarar nomes desnecessários.
+
+⚡ Callback
+Uma função callback é simplesmente uma função passada como argumento para outra função
+executada depois que a função “principal” terminar seu trabalho ou atingir certo ponto
+
+Exemplo simples
+function cumprimentar(nome, callback) {
+    console.log("Olá, " + nome + "!");
+    callback(); // Chama a função recebida
+}
+
+function despedir() {
+    console.log("Até logo!");
+}
+
+cumprimentar("Renan", despedir);
+
+Saída:
+Olá, Renan!
+Até logo!
+
+Aqui:
+
+despedir é a função callback.
+
+Ela foi passada para cumprimentar e só executa quando callback() é chamado dentro dela.
+
+⚡ Factory e classe
+
+1️⃣ 1. Factory Function (Função Fábrica)
+É simplesmente uma função que cria e retorna objetos.
+Ela é chamada de fábrica porque “fabrica” objetos, muitas vezes sem usar new.
+Exemplo:
+function criarProduto(nome, preco) {
+    return {
+        nome,
+        preco,
+        aplicarDesconto(desconto) {
+            return this.preco * (1 - desconto);
+        }
+    };
+}
+
+const notebook = criarProduto("Notebook", 3999);
+console.log(notebook.aplicarDesconto(0.10)); // 3599.1
+
+➡️ Aqui, cada vez que você chama criarProduto(...), ele retorna um novo objeto.
+🔹 Vantagem: simples, flexível, não precisa de new.
+🔹 Desvantagem: se criar muitos objetos, pode duplicar funções na memória (embora hoje em dia isso não seja um grande problema).
+
+2️⃣ 2. Classe (Class)
+É a forma mais próxima da orientação a objetos tradicional (como em Java, C#, etc.).
+Uma class é como um molde para criar objetos com new.
+
+Exemplo:
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    aplicarDesconto(desconto) {
+        return this.preco * (1 - desconto);
+    }
+}
+
+const celular = new Produto("Celular", 2500);
+console.log(celular.aplicarDesconto(0.20)); // 2000
+
+➡️ Aqui você define a estrutura (nome, preco) e os métodos (aplicarDesconto) dentro da classe.
+🔹 Vantagem: métodos ficam no prototype (mais eficiente em memória).
+ Vantagem: métodos ficam no prototype (mais eficiente em memória).
+🔹 Desvantagem: sintaxe um pouco mais verbosa.
+
+🔑 Diferença resumida:
+🔹 Factory: função que retorna um objeto pronto.
+🔹 Classe: um molde que você instancia com new.
+🔹 Factory é mais flexível para criar objetos diferentes rapidamente.
+🔹 Classe é melhor quando você quer uma estrutura clara e reaproveitar métodos sem duplicar.
+
+⚡ IIFE
+Declarada e executada imediatamente após sua criação
+O principal objetivo é criar um escopo isolado, sem poluir o escopo global.
+
+➡️ A sintaxe básica é:
+(function() {
+    console.log("Executando imediatamente!");
+})();
+'
+➡️ Ou usando arrow function:
+(() => {
+    console.log("Executando imediatamente com arrow function!");
+})();
+
+Como funciona:
+🔹 A função é envolvida por parênteses (function(){ ... }) para transformá-la em uma expressão.
+🔹 O () no final executa a função imediatamente.
+🔹 Tudo que estiver dentro dela fica isolado do escopo global.
+
+➡️ Exemplo útil:
+let contador = 0;
+
+(function() {
+    let contador = 10; // escopo isolado
+    console.log(contador); // 10
+})();
+
+console.log(contador); // 0, o contador global não foi alterado
+
+⚡ CALL e APPLY 
+Executar uma função definindo explicitamente o valor de this dentro dela
+Eles são muito parecidos, mas a diferença está na forma como você passa os argumentos.
+
+1. call
+Sintaxe:
+func.call(thisValor, arg1, arg2, ...);
+🔹 thisValor é o valor que você quer que this tenha dentro da função.
+🔹 Os argumentos da função são passados separados por vírgula.
+
+Exemplo:
+function saudacao(saudacaoInicial, pontuacao) {
+    console.log(`${saudacaoInicial}, eu sou ${this.nome}${pontuacao}`);
+}
+
+const pessoa = { nome: "Renan" };
+
+saudacao.call(pessoa, "Olá", "!");
+// Saída: "Olá, eu sou Renan!"
+
+2. apply
+Sintaxe:
+func.apply(thisValor, [arg1, arg2, ...]);
+Funciona igual ao call, mas os argumentos são passados em um array.
+
+Exemplo:
+saudacao.apply(pessoa, ["Oi", "!!"]);
+// Saída: "Oi, eu sou Renan!!"
+
+| Método  | Passagem de argumentos     |
+| ------- | -------------------------- |
+| `call`  | Lista separada por vírgula |
+| `apply` | Array de argumentos        |
+
+💡 Ambos são úteis quando você quer reutilizar funções em diferentes objetos.
+
+    ⚡⚡ Obejtos ⚡⚡
+
+🔹 O que são?
+
+Estruturas que representam entidades do mundo real.
+Guardam propriedades (características) e métodos (ações).
+
+➡️ Exemplo:
+const pessoa = {
+  nome: "Renan",
+  idade: 20,
+  falar() {
+    console.log("Oi, eu sou " + this.nome);
+  }
+};
+
+🔹 Acessando propriedades
+Ponto → pessoa.nome
+Colchetes → pessoa["idade"]
+
+🔹 Criando objetos
+➡️ Literal:
+const carro = { modelo: "Gol", ano: 2020 };
+
+➡️ new Object():
+const obj = new Object();
+obj.nome = "Teste";
+
+➡️ Factory Function:
+function criarProduto(nome, preco) {
+  return { nome, preco };
+}
+
+➡️ Classe (ES6):
+class Produto {
+  constructor(nome, preco) {
+    this.nome = nome;
+    this.preco = preco;
+  }
+}
+
+🔹 Propriedades especiais
+delete obj.propriedade → remove uma chave.
+Object.keys(obj) → retorna array com as chaves.
+Object.values(obj) → retorna array com os valores.
+Object.entries(obj) → pares [chave, valor].
+
+🔹 Percorrendo objeto
+for (let chave in pessoa) {
+  console.log(chave, pessoa[chave]);
+}
+
+🔹 JSON (JavaScript Object Notation)
+É só texto no formato de par nome/valor.
+Usado para troca de dados entre sistemas.
+
+🔹 Resumão
+Objeto = coleção de pares nome/valor.
+Acesso por . ou [].
+Criado via literal, função, classe, ou new Object.
+Pode ter métodos (this acessa propriedades).
+Conversão para JSON → JSON.stringify / JSON.parse.
+
+------------------------------------------------------------------------------------------
+.env
+(master)
+$ git pull origin master
+$ git checkout master
+$ git push origin master
+
+up/down para subir container
+
+vite -> weback (vai pegar tudo q vc escreveu e vai compilar)
+
+estudar git e depois chamar o igor para upar essa pasta de estudo 
+--------------------------------------------------------------------------------------------------
+
+para mudar algo 
+dar um cntc no texto e colar no search do vs code para achar
+
+<> typescript -> prevenção de erro e sugestao de maneira mais facil 
+
+view - do typescript
+vue - do JavaScript (componente)
+
+:deep vue  
+
+SFC SCSS FEACTURES
+
+$ git checkout -b feacture- 164-melhorias-cards 
+cria uma nova tarefa para usar
+
+$ git commmit 
+
+$ git status
+
+$ git log
+
+$ git push origin feacture/164-melhorias-cards

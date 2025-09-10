@@ -1,0 +1,128 @@
+
+---
+
+# 📌 Cola Rápida – JavaScript
+
+## 🔹 Estruturas de Dados
+
+* **Array** → acesso rápido, inserção/remoção média.
+* **Lista ligada** → acesso lento, inserção/remoção rápidas.
+* **Pilha (LIFO)** → último a entrar, primeiro a sair.
+* **Fila (FIFO)** → primeiro a entrar, primeiro a sair.
+* **Árvore** → buscas, auto-complete.
+* **Grafo** → conexões (GPS, redes sociais).
+* **Hash Table** → chave → valor (rápido).
+
+---
+
+## 🔹 Tipagem Fraca
+
+* Converte tipos automaticamente.
+  Ex.: `"5" + 1 = "51"`, `"5" - 1 = 4`.
+  ⚠️ Pode causar bugs → prefira `===` ao invés de `==`.
+
+---
+
+## 🔹 Métodos Úteis
+
+* **Number.isInteger(x)** → verifica inteiro.
+* **toFixed(n)** → define casas decimais.
+* **toString()** → converte p/ string.
+* **Math** → operações matemáticas.
+
+  * `Math.round()` → arredonda normal
+  * `Math.floor()` → para baixo
+  * `Math.ceil()` → para cima
+  * `Math.random()` → 0–1
+  * `Math.max(...), Math.min(...)`
+
+---
+
+## 🔹 Strings
+
+* `length`, `toUpperCase()`, `toLowerCase()`.
+* `includes()`, `indexOf()`, `replace()`.
+* `slice()`, `split()`, `trim()`.
+* Template string: `` `Olá ${nome}` ``.
+
+---
+
+## 🔹 Arrays
+
+* `push/pop` → final
+* `shift/unshift` → início
+* `slice/splice` → recorte/remoção
+* `includes/indexOf` → busca
+
+---
+
+## 🔹 Objetos
+
+```js
+const pessoa = { nome: "Renan", idade: 20 };
+console.log(pessoa.nome);
+Objeto = coleção de pares nome/valor.
+Acesso por . ou [].
+Criado via literal, função, classe, ou new Object.
+Pode ter métodos (this acessa propriedades).
+Conversão para JSON → JSON.stringify / JSON.parse.
+```
+
+---
+
+## 🔹 Null x Undefined
+
+* **undefined** → declarado sem valor.
+* **null** → ausência intencional de valor.
+
+---
+
+## 🔹 Funções
+
+* Tradicional: `function soma(a,b){ return a+b }`
+* Arrow: `(a,b) => a+b`
+* Anônima: `const f = function(){}`
+* **Callback** → função passada como parâmetro.
+* **Factory** → função que retorna objeto.
+* **Classe** → molde com `new`.
+
+---
+
+## 🔹 this / bind / call / apply
+
+* **this** → quem chama a função.
+* **bind(obj)** → fixa o `this`.
+* **call(obj, a, b)** → executa passando args direto.
+* **apply(obj, \[a, b])** → executa com args em array.
+
+---
+
+## 🔹 Operadores
+
+* **Aritméticos** → `+ - * / % ** ++ --`
+* **Relacionais** → `> < >= <= == != === !==`
+* **Lógicos** → `&& || !`
+* **Ternário** → `cond ? v1 : v2`
+
+---
+
+## 🔹 Loops
+
+* `for (i=0;i<5;i++)`
+* `while(cond)` → testa antes.
+* `do...while` → executa pelo menos 1 vez.
+* `for...of` → valores de array.
+* `for...in` → chaves de objeto.
+* **break** → sai do loop.
+* **continue** → pula iteração.
+
+---
+
+## 🔹 Extras
+
+* **Hoisting** → `var` e `function` são içados.
+* **Destructuring** → extrai dados de obj/array.
+* **Par nome/valor** → `{ chave: valor }`.
+* **IIFE** → função auto-executada `(function(){})()`.
+
+
