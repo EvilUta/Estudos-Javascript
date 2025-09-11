@@ -18,6 +18,7 @@ const escola = [
 const getNotaAluno = a => a.nota
 const getNotaTurma = turma => turma.alunos.map(getNotaAluno)
 
-const notas1 = escola.map(getNotaTurma)
-console.log(notas1)
+const notas2 = escola.flatMap(getNotaTurma)
+console.log(notas2)
+
 
