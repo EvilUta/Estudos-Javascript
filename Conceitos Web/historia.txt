@@ -1,0 +1,51 @@
+1. Antes da Web: ARPANET e redes de pacotes (anos 60–80)
+ARPANET (1969) foi a primeira rede de computadores, financiada pelo governo dos EUA.
+A comunicação era feita por pacotes de dados em vez de conexões fixas (como o telefone).
+Para isso, criaram o TCP/IP (1974–83) — o conjunto de protocolos que até hoje forma a base da internet:
+IP → endereçamento e roteamento dos pacotes.
+TCP → garante que os pacotes cheguem na ordem correta e sem perdas.
+
+2. A invenção da Web (1989–1991)
+Tim Berners-Lee, físico no CERN (Suíça), queria uma forma de compartilhar documentos científicos entre diferentes computadores.
+Ele criou:
+HTTP (HyperText Transfer Protocol) → protocolo para transferir documentos de hipertexto.
+HTML (HyperText Markup Language) → linguagem de marcação para estruturar documentos.
+URL (Uniform Resource Locator) → o “endereço” único de cada recurso na web.
+O primeiro site foi publicado em 1991: uma página simples com links sobre o projeto.
+
+3. Crescimento da Web (anos 90)
+Navegadores surgiram (Mosaic, Netscape, depois Internet Explorer).
+Sites eram estáticos: só HTML e algumas imagens.
+Em seguida, vieram os CGI scripts (em Perl, C etc.), permitindo páginas dinâmicas.
+HTTP/1.0 (1996) → cada requisição abria uma nova conexão (lento).
+HTTP/1.1 (1997) → conexões persistentes, headers mais ricos, cache, compressão.
+
+4. Organização e grupos (anos 90–2000)
+A web começou a crescer rápido e precisava de padronização:
+IETF (Internet Engineering Task Force) → discute e padroniza protocolos como HTTP.
+W3C (World Wide Web Consortium, 1994) → criado pelo próprio Tim Berners-Lee para definir padrões como HTML, CSS, XML.
+WHATWG (2004) → grupo que continuou evoluindo HTML (originou o HTML5).
+Também surgiram grupos de desenvolvedores e comunidades:
+listas de discussão, fóruns como phpBB, depois Stack Overflow.
+
+4. Organização e grupos (anos 90–2000)
+A web começou a crescer rápido e precisava de padronização:
+IETF (Internet Engineering Task Force) → discute e padroniza protocolos como HTTP.
+W3C (World Wide Web Consortium, 1994) → criado pelo próprio Tim Berners-Lee para definir padrões como HTML, CSS, XML.
+WHATWG (2004) → grupo que continuou evoluindo HTML (originou o HTML5).
+Também surgiram grupos de desenvolvedores e comunidades:
+listas de discussão, fóruns como phpBB, depois Stack Overflow.
+
+6. A Web Moderna (2010–hoje)
+HTML5 (2014) → vídeo, áudio, canvas, APIs sem precisar de plugins.
+HTTP/2 (2015) → multiplexação (vários pedidos na mesma conexão), mais rápido.
+HTTP/3 (2020) → baseado em QUIC/UDP, ainda mais eficiente e seguro.
+REST e APIs → comunicação entre sistemas usando HTTP como base.
+GraphQL e WebSockets → novas formas de comunicação em tempo real e mais flexível.
+Grupos como WHATWG e W3C continuam definindo padrões, junto com a IETF.
+Hoje, a web é feita de camadas:
+Rede (IP, TCP/UDP, QUIC).
+Transporte (HTTP/HTTPS).
+Conteúdo (HTML, CSS, JS, JSON, APIs).
+Aplicações (sites, apps, redes sociais).
+

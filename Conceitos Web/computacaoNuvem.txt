@@ -1,0 +1,47 @@
+☁️ O que é Computação em Nuvem?
+É o fornecimento de recursos de TI (servidores, armazenamento, redes, banco de dados, softwares, etc.) pela internet, sob demanda, geralmente no modelo de pague pelo uso.
+
+👉 Em vez de comprar e manter servidores físicos próprios, a empresa/aluno/profissional usa a infraestrutura de terceiros (provedores de nuvem), como:
+AWS (Amazon Web Services)
+Microsoft Azure
+Google Cloud Platform
+Oracle Cloud, IBM Cloud, etc.
+
+⚙️ Características principais
+Escalabilidade → cresce ou diminui recursos rapidamente (aumentar servidores em Black Friday e reduzir depois).
+Elasticidade → aloca mais ou menos recursos conforme a demanda.
+Disponibilidade global → acessível de qualquer lugar.
+Custo sob demanda → paga apenas pelo que usa.
+Gerenciado → atualização, segurança e manutenção ficam por conta do provedor.
+
+📦 Modelos de Serviço em Nuvem
+IaaS (Infrastructure as a Service)
+Infraestrutura básica: servidores, redes, VMs.
+Cliente cuida do sistema operacional e apps.
+Ex.: Amazon EC2, Google Compute Engine.
+PaaS (Platform as a Service)
+Plataforma pronta para rodar aplicações.
+Cliente só foca no código, sem gerenciar servidores.
+Ex.: Heroku, Google App Engine, Azure App Service.
+SaaS (Software as a Service)
+Software pronto, acessado via navegador.
+Ex.: Gmail, Office 365, Trello, Netflix.
+
+🏗️ Modelos de Implantação
+Nuvem Pública → infraestrutura compartilhada entre várias empresas (AWS, GCP).
+Nuvem Privada → dedicada a uma única organização (mais segura, mas cara).
+Nuvem Híbrida → mistura das duas.
+Multicloud → uso de vários provedores ao mesmo tempo.
+
+🎯 Exemplos práticos
+Armazenamento: Google Drive, Dropbox.
+Hospedagem de sites: AWS, HostGator.
+Streaming: Netflix, Spotify.
+Ferramentas de trabalho: Google Docs, Microsoft Teams.
+Games: Xbox Cloud Gaming, GeForce Now.
+
+🕹️ Resumindo
+Computação em nuvem = recursos de TI entregues pela internet.
+IaaS, PaaS, SaaS → níveis de serviço.
+Escalável, flexível e sob demanda.
+Base da maioria das aplicações modernas (apps, jogos, e-commerce, IA).

@@ -1,0 +1,45 @@
+🖥️ 1. Mainframe (anos 60–80)
+Modelo centralizado: um computador gigante (mainframe) fazia todo o processamento.
+Usuários acessavam por terminais burros (só tela + teclado, sem poder de processamento).
+Vantagens: segurança centralizada, confiabilidade.
+Limitações: pouca flexibilidade, custo altíssimo, terminais não faziam nada sozinhos.
+Fluxo: 
+Terminal → envia comandos → Mainframe → responde com resultado.
+
+💻 2. Client-Side (anos 80–90)
+Com a popularização dos PCs, começou-se a usar mais processamento no cliente.
+Exemplos: programas desktop, jogos, planilhas (Excel), sistemas rodando localmente.
+O cliente roda quase tudo sozinho, só acessando arquivos ou rede quando precisa.
+Problema: cada máquina precisava ter o software instalado e atualizado → difícil de manter em empresas grandes
+
+3. Client-Server (anos 90–2000)
+Surge o modelo cliente-servidor → equilíbrio entre PC e servidor central.
+O cliente (front-end) → interface e parte da lógica (ex.: formulário, tela do sistema).
+O servidor (back-end) → processa dados, aplica regras de negócio, acessa o banco.
+Exemplo:
+Cliente → aplicativo em Delphi, Java ou navegador.
+Servidor → banco Oracle, MySQL, ou aplicação centralizada.
+Benefício: manutenção centralizada no servidor, mas interface amigável no cliente.
+
+🌐 4. Web e Arquitetura de Camadas (2000–2010)
+A Web trouxe um modelo de três camadas:
+Front-End (Cliente Web) → HTML, CSS, JavaScript no navegador.
+Back-End (Servidor de Aplicação) → regras de negócio, autenticação.
+Banco de Dados → persistência de dados.
+A comunicação é feita via HTTP, muitas vezes usando APIs.
+
+☁️ 5. Serviços e Arquitetura Moderna (2010–hoje)
+Hoje usamos arquitetura em serviços (SOA → Microservices → APIs REST/GraphQL).
+O back-end pode estar dividido em múltiplos serviços independentes.
+Front-End pode ser web (React, Angular, Vue) ou mobile (apps Android/iOS).
+End Services → serviços finais que entregam funcionalidades específicas (ex.: serviço de login, pagamento, envio de e-mail).
+Integração via APIs + Mensageria (RabbitMQ, Kafka, etc.).
+Fluxo moderno
+Front-End (web/app) → API Gateway → Serviços de Negócio (microservices) → Banco de Dados / Serviços externos (pagamentos, nuvem, etc.).
+
+📊 Resumindo a evolução
+Mainframe → tudo centralizado, terminais burros.
+Client-Side → PCs independentes, processando localmente.
+Client-Server → balanceamento entre cliente e servidor.
+Front-End + Back-End → web em 3 camadas.
+Arquitetura em Serviços → microservices, APIs, nuvem.

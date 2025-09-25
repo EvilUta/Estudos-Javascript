@@ -1,0 +1,50 @@
+🌐 O que é HTTPS?
+HTTP = protocolo para comunicação entre cliente e servidor.
+HTTPS (HTTP Secure) = HTTP + TLS/SSL para segurança.
+Ele garante que os dados que você troca com o servidor não possam ser interceptados ou alterados facilmente.
+
+👉 Exemplo:
+http://exemplo.com → conexão sem criptografia.
+https://exemplo.com → conexão criptografada com TLS.
+
+🔒 O que o HTTPS garante?
+Confidencialidade → criptografia (ninguém lê seus dados).
+Integridade → evita alterações no caminho (ataques man-in-the-middle).
+Autenticidade → garante que você está falando com o servidor certo (via certificados).
+
+⚙️ Como funciona o TLS/SSL (de forma resumida)
+Cliente acessa https://site.com.
+O servidor envia o certificado digital (emitido por uma Autoridade Certificadora confiável).
+O navegador valida se o certificado é confiável (cadeia de confiança).
+Cliente e servidor negociam um Handshake TLS:
+Definem qual algoritmo de criptografia usar.
+Trocam chaves (usando criptografia assimétrica).
+Criam uma chave de sessão (simétrica) para criptografar a comunicação.
+Daí pra frente, toda a troca de dados é criptografada.
+
+🔑 Conceitos importantes
+TLS (Transport Layer Security) → protocolo de segurança atual.
+SSL (Secure Sockets Layer) → protocolo antigo (já obsoleto, mas muita gente ainda fala "SSL" por costume).
+Certificado Digital → arquivo que contém a identidade do site (domínio) e a chave pública.
+Autoridade Certificadora (CA) → empresa/entidade que emite certificados confiáveis (ex.: Let's Encrypt, DigiCert, GlobalSign).
+
+📊 Tipos de certificados HTTPS
+DV (Domain Validation) → valida só o domínio (mais comum, rápido, usado na maioria dos sites).
+OV (Organization Validation) → valida também a empresa dona do domínio.
+EV (Extended Validation) → nível máximo de validação (mostrava nome da empresa na barra do navegador, hoje em desuso).
+
+⚡ Benefícios do HTTPS
+✅ Protege contra roubo de dados (senhas, cartões).
+✅ Passa mais confiança para o usuário.
+✅ SEO → Google prioriza sites HTTPS.
+✅ Permite uso de recursos modernos da Web (ex.: PWA, geolocalização, APIs sensíveis).
+
+❌ Riscos sem HTTPS
+Dados podem ser interceptados (sniffing).
+Alteração no caminho (injeção de anúncios ou malware).
+Navegadores marcam como “Não seguro”.
+
+👉 Resumindo:
+HTTP = simples, mas inseguro.
+HTTPS = HTTP + TLS → criptografia, integridade e autenticação.
+Baseado em certificados digitais emitidos por Autoridades Certificadoras.

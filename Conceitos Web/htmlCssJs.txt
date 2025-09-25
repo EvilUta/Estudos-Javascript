@@ -1,0 +1,66 @@
+📄 1. HTML (HyperText Markup Language)
+👉 É a estrutura da página.
+Linguagem de marcação, não de programação.
+Define o que é cada coisa no documento: títulos, parágrafos, imagens, links, formulários.
+Pensa como o esqueleto de uma casa.
+
+Exemplo:
+<h1>Bem-vindo</h1>
+<p>Este é um site simples.</p>
+<img src="foto.jpg" alt="Minha foto">
+
+🎨 2. CSS (Cascading Style Sheets)
+👉 É o estilo/visual da página.
+Controla cores, tamanhos, fontes, espaçamentos, layouts, animações.
+Pensa como a pintura, decoração e design da casa.
+
+Exemplo:
+h1 {
+  color: blue;
+  font-size: 32px;
+}
+p {
+  color: gray;
+  line-height: 1.5;
+}
+
+⚡ 3. JavaScript (JS)
+👉 É a interatividade e lógica da página.
+Linguagem de programação que roda no navegador (e também no servidor, via Node.js).
+Permite reagir a cliques, validar formulários, atualizar conteúdo sem recarregar a página.
+Pensa como a eletricidade e automação da casa.
+
+Exemplo:
+document.querySelector("h1").addEventListener("click", () => {
+  alert("Você clicou no título!");
+});
+
+🌐 Como trabalham juntos
+O navegador carrega o HTML (estrutura).
+Depois aplica o CSS (aparência).
+E então executa o JavaScript (interatividade).
+
+Exemplo prático:
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo</title>
+  <style>
+    h1 { color: red; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Clique em mim!</h1>
+  <script>
+    document.querySelector("h1").onclick = () => {
+      alert("Título clicado!");
+    };
+  </script>
+</body>
+</html>
+
+📊 Resumindo (analogia da casa)
+HTML → tijolos, paredes, estrutura.
+CSS → tinta, decoração, estilo.
+JavaScript → eletricidade, portas automáticas, interatividade.

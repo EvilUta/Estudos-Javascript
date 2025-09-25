@@ -1,0 +1,43 @@
+🌐 O que é DNS?
+DNS (Domain Name System) é o sistema que traduz nomes de domínio legíveis (ex.: google.com) em endereços IP (ex.: 142.250.190.78) que os computadores realmente entendem.
+
+👉 Ou seja:
+Humanos usam nomes → meusite.com.
+Máquinas usam números → 192.168.1.1 (IPv4) ou 2800:3f0:4001:: (IPv6).
+O DNS faz a “tradução automática”.
+
+⚙️ Como funciona o fluxo DNS
+Quando você digita www.exemplo.com no navegador:
+Navegador → verifica se já tem o IP no cache local.
+Sistema Operacional → consulta o cache do SO (ex.: Windows, Linux).
+Servidor DNS Recursivo (geralmente do seu provedor ou do Google/Cloudflare).
+Se não achar no cache, ele vai consultar em cadeia:
+Root Servers (.) → apontam para os servidores de TLD.
+TLD Servers (.com, .org, .br, etc.) → apontam para os servidores do domínio.
+Authoritative Servers → têm o IP real configurado pelo dono do domínio.
+O IP é devolvido → e o navegador finalmente abre a conexão com o servidor web.
+
+📦 Tipos de Registros DNS
+Cada registro é uma “linha de instrução” sobre o domínio:
+A → aponta domínio para um IP IPv4 (meusite.com → 192.168.1.1).
+AAAA → aponta para IPv6.
+CNAME → apelido de outro domínio (blog.meusite.com → plataforma.com).
+MX → define servidores de e-mail.
+TXT → informações extras (usado em SPF, DKIM, Google verification).
+NS → define os servidores DNS responsáveis.
+PTR → usado para resolução reversa (IP → nome).
+
+📊 Exemplo prático
+Imagina que você digita:
+https://loja.exemplo.com
+
+Fluxo:
+Navegador pergunta → DNS encontra o registro A de loja.exemplo.com.
+Descobre que o IP é 203.0.113.25.
+Navegador abre conexão HTTP/HTTPS com esse IP.
+
+⚡ Resumindo
+DNS = tradutor de nomes → IPs.
+Sem DNS, você teria que decorar números em vez de nomes.
+Funciona em cadeia (Root → TLD → Autoritativo).
+Tem diferentes tipos de registros para web, e-mail, subdomínios, etc.

@@ -1,0 +1,55 @@
+🌐 O que é um Web Service?
+Um Web Service é um serviço disponível na web que permite a comunicação entre aplicações diferentes usando protocolos e formatos padronizados (geralmente sobre HTTP/HTTPS).
+
+👉 Em outras palavras:
+É uma “porta de entrada” para que sistemas conversem entre si, trocando dados de forma automatizada.
+
+⚙️ Como funciona
+Cliente (pode ser um site, app ou outro sistema) → faz uma requisição ao web service.
+Servidor (onde está o web service) → processa e devolve uma resposta.
+A comunicação normalmente usa mensagens em XML ou JSON, sobre HTTP/HTTPS.
+
+📦 Tipos principais de Web Services
+1. SOAP (Simple Object Access Protocol)
+Baseado em XML.
+Muito usado em sistemas corporativos, bancos, ERPs.
+Estrutura bem rígida (WSDL descreve o serviço).
+Suporta transações complexas, segurança avançada.
+Exemplo: sistemas de pagamento de bancos.
+
+2. REST (Representational State Transfer)
+Usa HTTP de forma simples e direta.
+Dados em JSON (mais leve que XML).
+Baseado em recursos e métodos HTTP:
+GET → buscar dados.
+POST → criar.
+PUT/PATCH → atualizar.
+DELETE → excluir.
+Muito usado em APIs modernas (Google, Facebook, etc.).
+
+3. GraphQL (Facebook, 2015)
+Alternativa ao REST.
+Cliente pede exatamente os campos que quer.
+Reduz sobrecarga de dados (sem underfetching/overfetching).
+
+🔑 Benefícios de um Web Service
+✅ Integração entre sistemas diferentes (mesmo em linguagens distintas).
+✅ Reuso de dados e funcionalidades.
+✅ Comunicação via protocolos padrão (HTTP, HTTPS).
+✅ Escalável → pode atender vários clientes ao mesmo tempo.
+
+📊 Exemplo simples (REST JSON)
+Requisição (GET):
+GET https://api.exemplo.com/usuarios/10
+Resposta (JSON):
+
+{
+  "id": 10,
+  "nome": "Renan",
+  "email": "renan@email.com"
+}
+
+🕹️ Resumindo
+Web Service = serviço que sistemas oferecem via web.
+Pode ser implementado com SOAP, REST, GraphQL.
+Base da integração moderna entre apps, sistemas corporativos e dispositivos IoT.

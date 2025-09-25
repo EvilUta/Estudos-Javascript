@@ -1,0 +1,59 @@
+🌍 O que é um Servidor Web?
+É um software (às vezes também usado para o computador físico) que:
+Recebe requisições HTTP/HTTPS vindas dos clientes (navegadores, apps, APIs).
+Processa a requisição (ou repassa para outro sistema).
+Envia uma resposta HTTP de volta (HTML, JSON, imagem, vídeo, etc.).
+
+⚙️ Como funciona o fluxo
+O cliente (navegador/app) faz uma requisição para um endereço → https://exemplo.com/login.
+O DNS converte exemplo.com em um endereço IP.
+O navegador abre uma conexão com o servidor web na porta 80 (HTTP) ou 443 (HTTPS).
+O servidor web:
+Lê a requisição HTTP.
+Decide se responde direto (ex.: arquivo estático HTML) ou se passa para outra aplicação (ex.: PHP, Node.js, Java).
+Envia uma resposta HTTP de volta.
+
+📦 Tipos de conteúdo que um servidor web entrega
+Arquivos estáticos: HTML, CSS, JS, imagens, vídeos, PDFs.
+Conteúdo dinâmico: gerado por aplicações (PHP, Node.js, Python, Java).
+APIs: retornam dados em formatos como JSON ou XML.
+
+🔑 Exemplos de Servidores Web (softwares mais usados)
+Apache HTTP Server (1995) → muito popular, configurável com .htaccess.
+Nginx (2004) → leve, rápido, ótimo para alta concorrência.
+Microsoft IIS → integrado ao Windows Server.
+LiteSpeed → focado em desempenho e compatível com Apache.
+Node.js + Express → não é servidor web por si só, mas cria servidores HTTP customizados.
+
+🏗️ Componentes típicos de um servidor web
+Core HTTP → entende e responde requisições HTTP.
+Módulos/Plugins → extensões (ex.: mod_php no Apache, FastCGI no Nginx).
+Gerenciamento de conexões → controla múltiplos acessos simultâneos.
+Logs → registra acessos, erros, tempos de resposta.
+Segurança → HTTPS/TLS, proteção contra ataques (DDoS, SQL Injection, etc.).
+
+🏗️ Componentes típicos de um servidor web
+Core HTTP → entende e responde requisições HTTP.
+Módulos/Plugins → extensões (ex.: mod_php no Apache, FastCGI no Nginx).
+Gerenciamento de conexões → controla múltiplos acessos simultâneos.
+Logs → registra acessos, erros, tempos de resposta.
+Segurança → HTTPS/TLS, proteção contra ataques (DDoS, SQL Injection, etc.).
+
+🔀 Servidor Web vs Servidor de Aplicação
+Servidor Web → lida com HTTP e entrega conteúdo estático/dinâmico.
+Servidor de Aplicação → executa regras de negócio mais complexas (ex.: Java EE, .NET).
+👉 Muitas vezes eles trabalham juntos:
+Nginx/Apache recebe requisições.
+Repassa para um aplicativo (ex.: Node.js, PHP-FPM, Java Spring).
+
+📊 Exemplo do fluxo prático
+Renan digita https://meusite.com/produtos.
+O navegador envia uma requisição GET.
+O servidor web Nginx recebe e identifica que precisa chamar o código em PHP.
+O PHP consulta o banco de dados e gera uma página HTML.
+O servidor web envia de volta:
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<html>...</html>
+

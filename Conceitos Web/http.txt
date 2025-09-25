@@ -1,0 +1,75 @@
+🌍 Camada de Aplicação
+Dentro do modelo TCP/IP, o HTTP vive na camada de aplicação.
+Essa camada é responsável por protocolos que lidam diretamente com o usuário (HTTP, FTP, SMTP, DNS, etc.).
+Em HTTP, o que trafega é texto estruturado (requisições e respostas).
+
+🔁 Modelo Cliente-Servidor
+Cliente → normalmente o navegador (ou um app que consome uma API). Ele inicia a comunicação.
+Servidor → onde está o recurso (site, API, arquivo, etc.), e responde ao cliente.
+Fluxo básico:
+Cliente abre conexão TCP (ou QUIC/UDP no HTTP/3).
+Cliente envia uma requisição HTTP.
+Servidor processa e devolve uma resposta HTTP.
+Conexão pode ser encerrada ou mantida (keep-alive).
+
+🏗️ Stateless
+O HTTP é stateless (“sem estado”):
+Cada requisição é independente.
+O servidor não “lembra” da requisição anterior por padrão.
+Exemplo: se você abrir duas abas e acessar o mesmo site, o servidor não sabe que são da mesma pessoa, a menos que use cookies, sessões, ou tokens para manter o estado.
+
+📩 Requisições e Respostas
+Estrutura de uma requisição HTTP ->
+POST /login HTTP/1.1
+Host: exemplo.com
+Content-Type: application/json
+Content-Length: 34
+
+{
+  "usuario": "renan",
+  "senha": "1234"
+}
+inha de requisição → Método (GET, POST…), caminho, versão do HTTP.
+Headers → informações extras (tipo de dado, autenticação, cache, cookies).
+Body → corpo da requisição (só em métodos como POST, PUT, PATCH).
+
+Estrutura de uma resposta HTTP ->   
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 50
+
+{
+  "mensagem": "Login realizado com sucesso!"
+}
+Linha de status → versão do HTTP, código (200, 404…), descrição.
+Headers → tipo de conteúdo, tamanho, cache, etc.
+Body → o conteúdo solicitado (HTML, JSON, imagem…).
+
+📬 Requisição via POST
+Usada para enviar dados ao servidor (formulários, login, upload, APIs).
+Diferente do GET, que manda dados na URL, o POST manda no body.
+Exemplo prático: enviar um comentário num site ou criar um novo registro via API.
+
+📊 Grupos de Status HTTP
+
+Os códigos de status são divididos em 5 classes:
+
+1xx – Informativo
+Ex.: 100 Continue, 101 Switching Protocols.
+2xx – Sucesso ✅
+200 OK → deu tudo certo.
+201 Created → algo foi criado (ex.: novo usuário).
+204 No Content → requisição ok, mas sem resposta no body.
+3xx – Redirecionamento 🔄
+301 Moved Permanently → URL mudou de vez.
+302 Found → redirecionamento temporário.
+304 Not Modified → cliente pode usar cache.
+4xx – Erro do Cliente ❌
+400 Bad Request → requisição mal feita.
+401 Unauthorized → precisa autenticação.
+403 Forbidden → não tem permissão.
+404 Not Found → recurso não encontrado.
+5xx – Erro do Servidor ⚠️
+500 Internal Server Error → erro genérico.
+502 Bad Gateway → servidor intermediário recebeu resposta inválida.
+503 Service Unavailable → servidor sobrecarregado ou em manutenção.

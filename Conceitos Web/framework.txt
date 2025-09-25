@@ -1,0 +1,56 @@
+🚀 O que é um Framework?
+Um framework é um conjunto de bibliotecas, ferramentas e regras que facilita o desenvolvimento de software.
+Ele fornece a estrutura básica (esqueleto) da aplicação.
+O dev só precisa preencher a lógica de negócio, sem reinventar tudo do zero.
+
+🔑 Diferença para biblioteca:
+Biblioteca = você chama quando precisa.
+Framework = ele chama o seu código (Inversão de Controle → “Hollywood Principle”: don’t call us, we’ll call you).
+
+🏗️ Tipos de Frameworks
+1. Back-End
+Criam servidores, APIs e regras de negócio.
+Node.js:
+Express → minimalista, muito usado.
+NestJS → inspirado no Angular, modular.
+Python: Django, Flask, FastAPI.
+Java: Spring, Quarkus.
+PHP: Laravel, Symfony.
+.NET: ASP.NET Core.
+
+2. Front-End (Web)
+Para criar interfaces de usuário interativas:
+React (Facebook) → baseado em componentes.
+Angular (Google) → framework completo, inclui tudo.
+Vue.js → mais leve e flexível.
+Svelte → gera código otimizado.
+
+3. Mobile
+React Native (JavaScript/React).
+Flutter (Google, baseado em Dart).
+Ionic (web + mobile híbrido).
+SwiftUI (Apple, iOS).
+Jetpack Compose (Google, Android).
+
+4. Full-Stack
+Juntam front e back:
+Next.js (em cima do React).
+Nuxt.js (em cima do Vue).
+Meteor.js (Node.js + front).
+RedwoodJS (novo, integrado com GraphQL).
+
+5. Outros
+Frameworks de teste: Jest, Mocha, JUnit, PyTest.
+Frameworks de UI/estilo: Bootstrap, Tailwind CSS, Material UI.
+Frameworks de dados: Hibernate (Java), Sequelize (Node), SQLAlchemy (Python).
+
+📊 Vantagens de usar Frameworks
+✅ Produtividade (menos código repetitivo).
+✅ Padrões de projeto já implementados.
+✅ Segurança embutida (ex.: proteção contra SQL Injection, CSRF).
+✅ Comunidade grande = suporte e documentação.
+
+⚠️ Desvantagens
+❌ Curva de aprendizado (às vezes complexa).
+❌ Pode limitar a flexibilidade (você segue as regras dele).
+❌ Dependência → se o framework morre, o projeto pode ficar “preso”.

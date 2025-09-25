@@ -1,0 +1,47 @@
+📄 Conteúdo Estático
+👉 É o conteúdo que não muda no servidor:
+O arquivo está salvo em disco (HTML, CSS, JS, imagem, PDF).
+Sempre que o cliente pede, o servidor devolve exatamente o mesmo arquivo.
+
+Exemplos:
+Página HTML fixa (sobre.html).
+CSS e imagens de um site.
+Um PDF de manual ou catálogo.
+
+Características:
+Mais rápido → servidor só lê e envia.
+Pode ser servido direto por um CDN (sem precisar do back-end).
+Fácil de cachear no navegador.
+Pouca flexibilidade → se quiser mudar o conteúdo, precisa alterar o arquivo no servidor.
+
+⚙️ Conteúdo Dinâmico
+👉 É o conteúdo que é gerado na hora da requisição.
+O servidor executa algum código (PHP, Node.js, Python, Java etc.).
+Pode consultar banco de dados, aplicar regras de negócio, gerar HTML/JSON sob demanda.
+
+Exemplos:
+Página de perfil no Facebook → muda conforme o usuário logado.
+Resultado de busca no Google.
+Relatórios gerados em tempo real.
+APIs que retornam JSON do banco.
+
+Características:
+Mais flexível → conteúdo personalizado.
+Pode ser personalizado por usuário, data, parâmetros.
+Mais pesado → depende de processamento e consulta ao banco.
+Difícil de cachear (a não ser que use estratégias como cache reverso).
+
+🌐 Como eles se combinam hoje
+Quase todo site moderno mistura os dois:
+Arquivos estáticos (HTML base, CSS, JS) → carregam o esqueleto.
+Conteúdo dinâmico → preenchido depois, via servidor ou API.
+
+Exemplo prático:
+O servidor entrega um HTML e um JS estáticos.
+Esse JS faz requisições AJAX/Fetch para uma API.
+A API retorna dados dinâmicos, que o JS insere na página.
+
+⚡ Resumindo
+Estático = pronto, igual para todos.
+Dinâmico = gerado na hora, personalizado.
+Web moderna = mistura os dois, com renderização dinâmica em cima de arquivos estáticos.
