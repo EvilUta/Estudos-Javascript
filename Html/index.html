@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercícios HTML</title>
+<style>
+    * {
+        box-sizing: border-box; 
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #eee;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 1000;
+    }
+
+    header a.pastas {
+        margin-left: auto; 
+        text-decoration: none;
+        padding: 12px 15px;
+        background-color: #086138;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        white-space: nowrap; 
+    }
+
+    nav {
+        margin-top: 100px; 
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 20px; 
+        flex-wrap: wrap; 
+    }
+
+    nav a.btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 12px 16px;
+        background-color: #eee;
+        border-radius: 6px;
+        color: black;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    #conteudo {
+        padding: 20px;
+        margin-bottom: 80px; 
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #eee;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav a.btn:hover, header a.pastas:hover {
+        background-color: #ccc;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    Exercícios HTML
+    <a href="/" class="pastas">Pastas estudos</a>
+</header>
+
+<nav>
+    <a href="texto1.html" class="btn">Exercício Texto - 01</a>
+    <a href="texto2.html" class="btn">Exercício Texto - 02</a>
+    <a href="listas.html" class="btn">Exercício Lista - 01</a>
+    <a href="listas2.html" class="btn">Exercício Lista - 02</a>
+    <a href="listasDesafio.html" class="btn">Desafio Lista</a>
+</nav>
+
+<section id="conteudo">
+    <p>Selecione um exercício acima para carregar o conteúdo aqui.</p>
+</section>
+
+<footer>
+    Curso de Web Moderno
+</footer>
+
+<script>
+document.querySelectorAll("nav a").forEach(link => {
+    link.onclick = function(e){
+        e.preventDefault();
+        const conteudo = document.getElementById("conteudo");
+        fetch(this.href)
+            .then(resp => resp.text())
+            .then(html => {
+                conteudo.innerHTML = html;
+                if (conteudo.querySelector("#tree")) {
+                    conteudo.querySelectorAll("#tree li").forEach(li => {
+                        const sublist = li.querySelector("ul");
+                        if (sublist) {
+                            li.classList.add("has-children");
+                            const label = li.querySelector("span");
+                            label.addEventListener("click", e => {
+                                e.stopPropagation();
+                                li.classList.toggle("open");
+                            });
+                        }
+                    });
+                }
+            })
+            .catch(err => conteudo.innerHTML = "<p>Erro ao carregar conteúdo.</p>");
+    }
+});
+</script>
+
+</body>
+</html>

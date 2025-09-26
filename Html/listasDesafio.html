@@ -1,0 +1,91 @@
+<style>
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+li {
+    margin: 5px 0;
+    position: relative;
+}
+
+li > span {
+    cursor: pointer;
+}
+
+li.has-children::before {
+    content: "▶";
+    position: absolute;
+    left: -20px;
+    transition: transform 0.2s;
+}
+
+li.open::before {
+    transform: rotate(90deg);
+}
+
+li ul {
+    display: none;
+    padding-left: 20px;
+}
+
+li.open > ul {
+    display: block;
+}
+
+li:not(.has-children)::before {
+    content: "•";
+}
+</style>
+
+<h1>Lista em árvore</h1>
+
+<ul id="tree">
+    <li><span>Frutas</span>
+        <ul>
+            <li><span>Citrus</span>
+                <ul>
+                    <li><span>Laranja</span></li>
+                    <li><span>Limão</span></li>
+                </ul>
+            </li>
+            <li><span>Frutas Vermelhas</span>
+                <ul>
+                    <li><span>Morango</span></li>
+                    <li><span>Amora</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><span>Vegetais</span>
+        <ul>
+            <li><span>Folhosos</span>
+                <ul>
+                    <li><span>Alface</span></li>
+                    <li><span>Espinafre</span></li>
+                </ul>
+            </li>
+            <li><span>Raízes</span>
+                <ul>
+                    <li><span>Cenoura</span></li>
+                    <li><span>Beterraba</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+document.querySelectorAll("#tree li").forEach(li => {
+    const sublist = li.querySelector("ul");
+    if (sublist) {
+        li.classList.add("has-children");
+
+        const label = li.querySelector("span");
+        label.addEventListener("click", e => {
+            e.stopPropagation();
+            li.classList.toggle("open");
+        });
+    }
+});
+</script>
