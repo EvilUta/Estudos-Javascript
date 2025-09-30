@@ -93,6 +93,13 @@
     <a href="listas.html" class="btn">Exercício Lista - 01</a>
     <a href="listas2.html" class="btn">Exercício Lista - 02</a>
     <a href="listasDesafio.html" class="btn">Desafio Lista</a>
+    <a href="links.html" class="btn">Desafio Links</a>
+    <a href="tabela.html" class="btn">Desafio Tabela</a>
+    <a href="Forms/forms.html" class="btn">Desafio Formulario</a>
+    <a href="imagem.html" class="btn">Desafio Imagens</a>
+    <a href="videos.html" class="btn">Desafio Videos</a>
+    <a href="tagsNaoVisuais.html" class="btn">Tags Não Visuais</a>
+
 </nav>
 
 <section id="conteudo">
@@ -112,6 +119,8 @@ document.querySelectorAll("nav a").forEach(link => {
             .then(resp => resp.text())
             .then(html => {
                 conteudo.innerHTML = html;
+
+                // Ativa árvore se existir
                 if (conteudo.querySelector("#tree")) {
                     conteudo.querySelectorAll("#tree li").forEach(li => {
                         const sublist = li.querySelector("ul");
@@ -125,11 +134,69 @@ document.querySelectorAll("nav a").forEach(link => {
                         }
                     });
                 }
+
+                // Ativa carrossel se existir
+                const carousel = conteudo.querySelector('.carousel');
+                if (carousel) {
+                    const imgs = carousel.querySelectorAll('img');
+                    const prev = carousel.querySelector('.prev');
+                    const next = carousel.querySelector('.next');
+                    let idx = 0;
+                    function showImg(i) {
+                        imgs.forEach(img => img.classList.remove('active'));
+                        imgs[i].classList.add('active');
+                    }
+                    prev.onclick = () => {
+                        idx = (idx - 1 + imgs.length) % imgs.length;
+                        showImg(idx);
+                    };
+                    next.onclick = () => {
+                        idx = (idx + 1) % imgs.length;
+                        showImg(idx);
+                    };
+                }
+
+                // Ativa player de vídeo se existir
+                const video = conteudo.querySelector("#video");
+                const playPause = conteudo.querySelector("#playPause");
+                const progress = conteudo.querySelector("#progress");
+                const volume = conteudo.querySelector("#volume");
+
+                if (video && playPause && progress && volume) {
+                playPause.addEventListener("click", () => {
+                    if (video.paused) {
+                    video.play().catch(err => console.log(err));
+                    playPause.textContent = "⏸️";
+                } else {
+                 video.pause();
+                 playPause.textContent = "▶️";
+                    }
+                });
+
+                 video.addEventListener("timeupdate", () => {
+                     if (!isNaN(video.duration)) {
+                     progress.value = (video.currentTime / video.duration) * 100;
+                    }
+                 });
+
+                progress.addEventListener("input", () => {
+                video.currentTime = (progress.value / 100) * video.duration;
+                });
+
+                // 🎚️ Controle de volume
+                volume.addEventListener("input", () => {
+                    video.volume = volume.value;
+                    });
+                }
             })
-            .catch(err => conteudo.innerHTML = "<p>Erro ao carregar conteúdo.</p>");
-    }
+            .catch(err => {
+                conteudo.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+                console.error(err);
+            });
+    };
 });
 </script>
 
 </body>
 </html>
+

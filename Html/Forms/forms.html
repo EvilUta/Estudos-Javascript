@@ -1,0 +1,107 @@
+<h1>Formulário</h1>
+<form action="http://localhost:3003/usuarios" method="POST">
+    <label>Nome</label>
+    <input type="text" name="nome" placeholder="Digite seu nome">
+
+    <label>Senha</label>
+    <input type="password" name="senha" placeholder="Digite sua senha">
+
+    <label>Biografia</label>
+    <textarea name="bio" cols="30" rows="5" placeholder="Escreva algo sobre você..."></textarea>
+
+    <label>Tipo de usuário</label>
+    <div class="radios">
+        <label><input type="radio" name="tipo" value="Admin"> Admin</label>
+        <label><input type="radio" name="tipo" value="Regular"> Regular</label>
+        <label><input type="radio" name="tipo" value="Professor"> Professor</label>
+    </div>
+
+    <label><input type="checkbox" name="Ativo"> Ativo</label>
+
+    <label>Estado</label>
+    <select name="Estado">
+        <option value="SP">São Paulo</option>
+        <option value="AC">Acre</option>
+        <option value="BH">Bahia</option>
+    </select>
+
+    <label>Interesses</label>
+    <select name="Interesses" multiple size="5">
+        <option value="JS">JS</option>
+        <option value="Java">Java</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Go">Go</option>
+        <option value="C">C</option>
+    </select>
+
+    <button type="submit">Incluir</button>
+</form>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    form {
+        background: #fcfcfc;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+        color: #444;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .radios {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #444;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #666;
+    }
+</style>
