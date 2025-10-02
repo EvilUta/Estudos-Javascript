@@ -32,3 +32,5 @@ aprovados.splice(1 , 1) // REMOVER E ADICIONAR ELEMENTOS AO MEMSO TEMPO
 console.log(aprovados)
 aprovados.splice(1 , 2 , "Elemento 1" , "Elemento 2")
 console.log(aprovados)
+
+console.log(`Igor Piroca`)
