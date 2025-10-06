@@ -1,13 +1,154 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Desafio Menu</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <style>
-        /* ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header.cabecalho {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(90deg, #111, #222, #333);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img {
+            height: 55px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: #f39c12;
+            transition: width 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f39c12;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .autenticacao {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .autenticacao a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .autenticacao a:hover {
+            color: #f39c12;
+        }
+
+        .botao.destaque {
+            background: #f39c12;
+            color: #111;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .botao.destaque:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Botão de menu (mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* 🔹 Menu lateral direito no modo mobile */
+        @media (max-width: 900px) {
+            .menu ul {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -250px; /* escondido inicialmente */
+                width: 250px;
+                height: 100vh;
+                background: #111;
+                padding-top: 100px;
+                transition: right 0.4s ease-in-out;
+                box-shadow: -2px 0 8px rgba(0,0,0,0.4);
+            }
+
+            .menu ul.aberto {
+                right: 0; /* aparece na tela */
+            }
+
+            .menu ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+                z-index: 200;
+            }
+
+            .autenticacao {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -15,37 +156,36 @@
     <header class="cabecalho">
         <div class="logo">
             <a href="#inicio">
-                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo">
             </a>
         </div>
+
         <button class="menu-toggle">
             <i class="fa fa-lg fa-bars"></i>
         </button>
+
         <nav class="menu">
             <ul>
-                <li>
-                    <a href="#inicio">Início</a>
-                </li>
-                <li>
-                    <a href="#cursos">Cursos</a>
-                </li>
-                <li>
-                    <a href="#sobre">Sobre</a>
-                </li>
-                <li>
-                    <a href="#contato">Contato</a>
-                </li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+
         <aside class="autenticacao">
             <a href="#login">Login</a>
-            <a href="#registar" class="botao destaque">Registrar</a>
+            <a href="#registrar" class="botao destaque">Registrar</a>
         </aside>
     </header>
 
     <script>
-        // ...
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu ul');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('aberto');
+        });
     </script>
 </body>
-
 </html>
