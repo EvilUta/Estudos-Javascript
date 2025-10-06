@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <title>Unidades #02</title>
     <style>
-        /* ... */
+        .fora{
+            position: relative;
+            background-color: rgb(100, 208, 250);
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+        }
+
+        .dentro{
+            background-color: rgb(87, 199, 162);
+            height: 100px;
+            width: 100%;
+            position: static; /*Conteudo*/
+            position: relative; /*Conteudo*/
+            position: absolute; /*Conteudo + o padding*/
+            Position: fixed; /*Viewport*/
+
+        }
     </style>
 </head>
 <body>
     <div class="fora">
-        <div class="dentro"></div>
+        <div class="dentro">Ola</div>
     </div>
 </body>
 </html>
