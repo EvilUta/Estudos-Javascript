@@ -1,0 +1,124 @@
+.tela {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 4px solid #000;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+    /* Fundo com imagem */
+    background-image: url('../imgs/ceu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.passaro {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    left: 80px;
+    top: 200px;
+}
+
+.cano {
+    position: absolute;
+    width: 60px;
+    background: linear-gradient(to bottom, #6be34a 0%, #4ec52b 40%, #3aa923 60%, #2d8e1a 100%);
+    border: 2px solid #1f6010;
+    box-shadow: inset 0 4px 6px rgba(255,255,255,0.2),
+                inset 0 -4px 6px rgba(0,0,0,0.3),
+                3px 3px 10px rgba(0,0,0,0.4);
+    border-radius: 3px;
+    left: 400px;
+}
+
+/* Brilho lateral simulando o reflexo do sol */
+.cano::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
+}
+
+/* Parte superior do cano (a borda arredondada que fica visível) */
+.cano::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: 15px;
+    background: linear-gradient(to bottom, #72ef52, #4bc52a);
+    border: 2px solid #1f6010;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+}
+
+/* Cano de cima */
+.cano.cima {
+    top: 0;
+    transform: rotate(180deg);
+}
+
+/* Cano de baixo */
+.cano.baixo {
+    bottom: 0;
+}
+
+
+.menu,
+.game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Press Start 2P", monospace;
+    font-size: 14px;
+    text-align: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px)
+}
+
+.menu button,
+.game-over button {
+    margin-top: 20px;
+    background: yellow;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: inherit;
+    z-index: 9999;
+}
+
+.pontuacao {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    color: white;
+    text-shadow: 2px 2px 2px #000;
+    z-index: 9999;
+}
+
+@keyframes brilhoCano {
+    0% { opacity: 0; transform: translateY(-100%); }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; transform: translateY(100%); }
+}
+
+.cano::before {
+    animation: brilhoCano 3s linear infinite;
+}
