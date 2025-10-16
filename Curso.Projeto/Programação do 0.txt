@@ -1,0 +1,470 @@
+
+🟨 SENTENÇAS EM JAVASCRIPT
+Sentença é uma instrução completa, como uma linha de código.
+
+Termina, geralmente, com ponto e vírgula (;), embora em JS seja opcional na maioria dos casos.
+
+exemplo = 
+
+let nome = "Renan";
+console.log(nome);
+
+🟩 BLOCOS DE CÓDIGO
+São delimitados por chaves { }.
+
+Usados para agrupar várias sentenças, por exemplo em funções, if, for, etc.
+
+Exemplo:
+if (idade >= 18) {
+  console.log("Maior de idade");
+  podeEntrar = true;
+}
+
+🟦 VARIÁVEIS: var, let e const
+🔹 var
+Forma antiga de declarar variáveis.
+
+Escopo de função, ignora bloco (pode dar bugs).
+
+Permite reatribuição e redeclaração.
+
+Exemplo:
+
+var nome = "João";
+var nome = "Pedro"; // OK
+
+Evite usar var, pois pode causar comportamento inesperado.
+
+🔹 let
+Introduzido no ES6 (2015).
+
+Tem escopo de bloco ({ }).
+
+Pode ser reatribuído, mas não pode ser redeclarado no mesmo escopo.
+
+Exemplo:
+let idade = 25;
+idade = 30; // OK
+// let idade = 35; // Erro se estiver no mesmo escopo
+
+🔹 const
+Também do ES6.
+
+Escopo de bloco como o let.
+
+Não pode ser reatribuído nem redeclarado.
+
+Ideal para valores fixos ou imutáveis (por referência, objetos podem ser alterados internamente).
+
+Exemplo:
+
+const PI = 3.14;
+// PI = 3.1415; // Erro
+✅ Use const por padrão. Só use let se precisar mudar o valor depois.
+
+🧪 EXEMPLO COMPARATIVO:
+function exemplo() {
+  if (true) {
+    var x = 10;
+    let y = 20;
+    const z = 30;
+  }
+
+  console.log(x); // 10
+  // console.log(y); // Erro: y não está definido
+  // console.log(z); // Erro: z não está definido
+}
+
+📌 DICA DE BOA PRÁTICA:
+
+| Situação                         | Qual usar?        |
+| -------------------------------- | ----------------- |
+| Valor que não muda               | `const`           |
+| Valor que muda                   | `let`             |
+| Código legado ou compatibilidade | `var` (raramente) |
+
+🟨 O que é typeof?
+📌 Sintaxe:
+typeof valor
+
+🟩 Tipos possíveis que typeof pode retornar:
+| Tipo de dado  | Exemplo                         | `typeof` retorna                |
+| ------------- | ------------------------------- | ------------------------------- |
+| **Number**    | `42`, `3.14`, `NaN`, `Infinity` | `"number"`                      |
+| **String**    | `"Olá"`, `'texto'`, `` `Oi` ``  | `"string"`                      |
+| **Boolean**   | `true`, `false`                 | `"boolean"`                     |
+| **Undefined** | Variável sem valor              | `"undefined"`                   |
+| **Null**      | `null`                          | **🟥 `"object"` (bug antigo!)** |
+| **Object**    | `{}`, `[]`, `new Date()`        | `"object"`                      |
+| **Array**     | `[1,2,3]`                       | `"object"`                      |
+| **Function**  | `function() {}` ou `()=>{}`     | `"function"`                    |
+| **Symbol**    | `Symbol("id")`                  | `"symbol"`                      |
+| **BigInt**    | `123n`, `BigInt(900719925)`     | `"bigint"`                      |
+
+🚀 Resumo final
+| Tipo      | Verificação com `typeof` | Observação                               |
+| --------- | ------------------------ | ---------------------------------------- |
+| string    | `"string"`               |                                          |
+| number    | `"number"`               | Inclui `NaN`, `Infinity`                 |
+| boolean   | `"boolean"`              |                                          |
+| undefined | `"undefined"`            | Variável sem valor atribuído             |
+| null      | `"object"` ❗️             | Bug do JS, use `valor === null`          |
+| object    | `"object"`               | Inclui arrays, objetos, `null`, etc.     |
+| function  | `"function"`             | Somente funções                          |
+| symbol    | `"symbol"`               | Pouco usado, para identificadores únicos |
+| bigint    | `"bigint"`               | Para números muito grandes (ex: 10n)     |
+
+OPERADORES
+1)Binários/Unários/Ternários 
+
+🟩 Operadores Unários
+Atuam sobre um único operando.
+
+Exemplos:
+let x = 5;
+-x           // -5 (negação)
+typeof x     // "number"
+++x          // 6 (incremento)
+--x          // 5 (decremento)
+
+🟦 Operadores Binários
+Atuam sobre dois operandos.
+
+Exemplos:
+5 + 3        // 8 (adição)
+10 - 2       // 8 (subtração)
+4 * 2        // 8 (multiplicação)
+6 / 2        // 3 (divisão)
+5 === 5      // true (comparação)
+a && b       // lógico E
+a || b       // lógico OU
+
+🟨 Operador Ternário
+Usa três operandos.
+
+É uma forma curta de if/else.
+
+Sintaxe:
+condição ? valorSeVerdadeiro : valorSeFalso;
+
+Exemplo: 
+let idade = 20;
+let status = idade >= 18 ? "Maior" : "Menor"; // "Maior"
+
+Resumo: 
+| Tipo     | Exemplo               | Quantos operandos? |
+| -------- | --------------------- | ------------------ |
+| Unário   | `-x`, `++x`, `typeof` | 1                  |
+| Binário  | `a + b`, `x && y`     | 2                  |
+| Ternário | `cond ? a : b`        | 3                  |
+
+2)Aritméticos
+"+" , "-" , "*" , "/" , "÷"
+
+Exemplo: 
+Console.log(7+3);
+
+3)Relacionais
+
+False / True
+7> 3 = True
+3< 4 = True
+7==7 = True
+ 
+Exemplo:
+let nota1 =7;
+let nota2 = 8;
+let nota3 = 6;
+
+let media = (nota1 + nota2 + nota3) / 3;
+
+if (media >= 7) {
+console.log("Aluno aprovado com média:" + media);
+
+} else { 
+console.log("Aluno reprovado com média:" + media);
+
+3)Atribuição
+let a = 7;
+a = 5;
+a = 3 + a;
+Próprio valor da variavel acrescentando ou substituindo
+\n -> Quebra de linha no console
+Atribuições com stings devem estar dentro de "" (aspas"
+"\n"
+exemplo:
+let a "Renan";
+let b "Kathleen";
+
+console.log("Namorados \n" + a "\n" + b);
+
+4)Lógicos
+Operadores lógicos servem para tomar decisões com base em valores booleanos (true ou false).
+Eles são usados principalmente em estruturas de controle como if, while, etc.
+
+Exemplo:
+
+let botãoAzul: false;
+
+if (botãoAzul) {
+console.log("Continuar");
+
+} else { 
+console.log("Erro");
+
+
+5)Operadores Unários
+o aqueles que operam sobre apenas um operando (ou valor). Eles executam ações como negação, incremento, conversão, etc.
+
+let a = 1;
+
+a = a;
+a += a;
+a++;
+++a;
+
+a--;
+a -=a;
+--a;
+
+! -> negação
+!! -> dupla negação = True (Apenas o 0 fica False)
+
+exemplo;
+console.log(!!"texto!"); 
+será true
+
+6)Operadores Ternários:
+O operador ternário é uma forma compacta de escrever uma estrutura condicional if/else.
+
+exemplo:
+const hora = 14;
+const saudacao = hora <= 11 ? "Bom dia" : "Boa tarde" ; 
+console.log(saudacao);
+
+------------------------------------------------------------------------------------------------------
+
+Estruturas de controle 
+ervem para tomar decisões ou controlar o fluxo do programa
+permitindo que o código execute ações diferentes dependendo das condições ou repita ações.
+
+ if ( )       -> true or false
+ Sentença, bloco ou Estutura de controle
+ Se ... será executado
+ exemplo: Se botaoContinuar for true, navegará para outra tela
+
+ else ( )     -> false (contrario)
+ O else é uma estrutura de controle condicional usada em linguagens como JavaScript, Python, C, etc.
+ Ele executa um bloco de código alternativo quando a condição do if não é verdadeira.
+ Se não ... 
+
+------------------------------------------------------------------------------------------------------
+
+Estruturas de repetição
+São comandos que repetem um bloco de código várias vezes, automáticamente, até que uma condição pare essa repetição.
+Imagine que você quer imprimir "Olá!" 100 vezes. Seria absurdo escrever console.log("Olá!") 100 vezes, certo?
+Com um laço de repetição, você escreve isso uma vez só, e o computador repete pra você!
+
+For
+O for é ideal quando sabemos exatamente quantas vezes queremos repetir uma tarefa.
+
+While
+O while é usado quando não sabemos quantas vezes a repetição será feita
+mas sabemos a condição que precisa continuar sendo verdadeira.
+
+Do/While
+parecido com o while, mas o bloco é executado pelo menos uma vez, mesmo se a condição for falsa.
+
+exemplo ->
+while(true) {
+  console.log("Looping");
+}
+
+------------------------------------------------------------------------------------------------------
+
+String 
+Em JavaScript, template strings (ou template literals) são uma forma de criar strings mais flexível e legível
+as são delimitadas por crases (`), e permitem:
+Exemplo:
+const nome = "Renan";
+const idade = 21;
+const frase = `Meu nome é ${nome} e eu tenho ${idade} anos.`;
+console.log(frase); // Meu nome é Renan e eu tenho 21 anos.
+
+------------------------------------------------------------------------------------------------------
+Switch
+O switch é uma estrutura de controle de fluxo em JavaScript (e outras linguagens)
+Usado para decisões com base em múltiplos valores possíveis de uma variável ou expressão.
+
+exemplo:
+
+let cor = "vermelho";
+
+switch (cor) {
+  case "azul":
+    console.log("Você escolheu azul");
+    break;
+
+  case "vermelho":
+    console.log("Você escolheu vermelho");
+    break;
+
+  case "verde":
+    console.log("Você escolheu verde");
+    break;
+
+  default:
+    console.log("Cor não reconhecida");
+}
+
+break: Encerra o switch. Sem ele, o código "cai" no próximo case, mesmo que não seja igual.
+
+default: Opcional. Funciona como o else, executado se nenhum case corresponder.
+
+A comparação é estritamente igual (===).
+
+O case é uma condição específica que é comparada com o valor da expressão do switch.
+
+O switch pergunta: “Qual é o valor?”
+
+O case responde: “Se for esse valor, execute isso.”
+
+------------------------------------------------------------------------------------------------------
+Funções
+Function {}
+Precisa definir o nome da função
+exemplo:
+
+const d2 = 21;
+
+Function exibirData1() {
+console.log (`Dia: ${d1}`);
+}
+
+exibirData1();
+
+no console aparecerá:
+Dia: 21
+
+/* Não esquecer dos () quando for declarar const dentro do console.log
+
+*Undefined
+valor da variavel não inicializada
+let a;
+let b = null;
+let d= undefined;
+
+*Retorno
+function sempreRetornaUm() {
+return 1;
+}
+
+
+*Paramentros
+variáveis internas da função, permitindo que ela trabalhe com dados diferentes a cada vez que é executada.
+
+exemplo:
+
+function saudacao(nome) {
+  console.log("Olá, " + nome + "!");
+}
+
+saudacao("Renan"); // Saída: Olá, Renan!
+
+nome é o parâmetro.
+
+"Renan" é o argumento passado na chamada da função.
+
+*Função
+Função é um bloco de código reutilizável que realiza uma ação específica
+
+exemplo: 
+
+function exibirMensagem() {
+  console.log("Essa é uma função!");
+}
+
+exibirMensagem(); // Saída: Essa é uma função!
+
+function declara a função.
+
+exibirMensagem() é chamada para executar o código dentro dela.
+
+*retornar função 
+Uma função pode retornar um valor com a palavra-chave return.
+ela entrega um resultado para quem a chamou,
+e esse resultado pode ser armazenado ou usado em outro lugar.
+
+exemplo:
+
+function somar(a, b) {
+  return a + b;
+}
+
+let resultado = somar(5, 3);
+console.log(resultado); // Saída: 8
+
+A função somar retorna a soma dos parâmetros a e b.
+
+O valor 8 é armazenado na variável resultado.
+
+---------------------------------------------------------------------------------------
+Array
+Extrutura indexada de dados para armazenar vários valores em uma única variável.
+organizar esses dados em sequência, facilitando o acesso, modificação e a interação
+sobre eles.
+
+exemplo: 
+let numeros = [10, 20, 30, 40, 50];
+console.log(numeros[2]); // 30
+
+Array dentro de array;
+let matriz = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+console.log(matriz[1][2]); // 6 (linha 2, coluna 3)
+
+---------------------------------------------------------------------------------------
+Objetos
+
+Atributos / Metodos
+Objetos em JavaScript são coleções de pares chave-valor.
+Usados para representar entidades com propriedades e comportamentos.
+
+🧱 Atributos (Propriedades)
+São valores associados a uma chave (nome) dentro do objeto.
+
+exemplo:
+const pessoa = {
+  nome: "Renan",
+  idade: 20
+};
+
+console.log(pessoa.nome); // "Renan"
+console.log(pessoa["idade"]); // 20
+
+⚙️ Métodos
+São funções associadas a objetos – representam comportamentos.
+
+exemplo:
+const carro = {
+  modelo: "Fusca",
+  ligar: function() {
+    console.log("Carro ligado!");
+  }
+};
+
+carro.ligar(); // "Carro ligado!"
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+//Valores literais
+console.log(5 + 3); // Soma
+console.log(5 - 3); // Subtração        
+console.log(5 * 3); // Multiplicação
+console.log(5 / 3); // Divisão
+console.log(5 % 3); // Módulo 
+
+let a = 5;
+let b = 3;
+
+console.log("Regras com variáveis");
+console.log(a + b); // Soma
+console.log(a - b); // Subtração        
+console.log(a * b); // Multiplicação
+console.log(a / b); // Divisão
+console.log(a % b); // Módulo
+
+a + b * b - a / b; // Operações combinadas
+console.log(a + b * b - a / b); // Resultado da expressão combinada
