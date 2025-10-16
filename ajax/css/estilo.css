@@ -4,6 +4,7 @@
 }
 
 * {
+    
     font-family: 'Oswald', sans-serif;
 }
 
@@ -12,11 +13,10 @@ html {
 }
 
 body {
+    background-color: lightgray;
     margin: 0;
-    background-color: #0D262D;
-    color: #fff;
-    height: 100%;
 }
+
 
 table {
     border-collapse: collapse;
@@ -39,8 +39,11 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100%;
+    /* justify-content: center;  */
+    /* height: 100vh;  */
+    padding-top: 20px;
 }
+
 
 .exercicio div {
     font-size: 3em;

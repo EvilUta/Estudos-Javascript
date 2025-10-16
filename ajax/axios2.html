@@ -14,6 +14,24 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados) {
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+        }
+
+        // Exemplo GET -> chama o endpoint /parOuImpar
+        axios.get('parOuImpar', {
+            params: {
+                numero: 5
+            }
+        }).then(resp => exibirResultado('get', resp.data))
+
+        // Exemplo POST -> chama o endpoint /formulario
+        axios.post('formulario', {
+            nome: 'Renan',
+            idade: 20
+        }).then(resp => exibirResultado('post', resp.data))
     </script>
 </body>
+
+</html>

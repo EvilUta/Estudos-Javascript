@@ -9,8 +9,67 @@
 
 <body class="conteudo exercicio">
     <h1>Estados</h1>
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sigla</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
     <script>
-        // ...
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.response)
+                } else if (xhr.status >= 400) {
+                    config.erro?.({
+                        code: xhr.status,
+                        text: xhr.statusText
+                    })
+                }
+            }
+            xhr.send()
+        }
+
+        ajax({
+            url: "dados/estados.json",
+            metodo: "get",
+            sucesso(response) {
+                const estados = JSON.parse(response)
+
+                const linhas = estados.map(estado => {
+                    const tdId = document.createElement('td')
+                    tdId.innerHTML = estado.id
+
+                    const tdNome = document.createElement('td')
+                    tdNome.innerHTML = estado.nome
+
+                    const tdSigla = document.createElement('td')
+                    tdSigla.innerHTML = estado.sigla
+
+                    const tr = document.createElement('tr')
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome)
+                    tr.appendChild(tdSigla)
+
+                    return tr
+                })
+
+                const corpoTabela = document.querySelector('#tabela tbody')
+                linhas.forEach(linha => corpoTabela.appendChild(linha))
+            },
+            erro(e) {
+                console.error('Erro:', e)
+            }
+        })
     </script>
 </body>
+
+</html>

@@ -9,8 +9,45 @@
 
 <body class="conteudo exercicio">
     <h1>Estados</h1>
+    <ul id="lista"></ul>
 
     <script>
-        // ...
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        config.sucesso(xhr.responseXML)
+                    } else if (xhr.status >= 400) {
+                        config.erro?.({
+                            codigo: xhr.status,
+                            texto: xhr.statusText
+                        })
+                    }
+                }
+            }
+            xhr.send()
+        }
+
+        ajax({
+            url: "dados/estados.xml",
+            metodo: "get",
+            sucesso(resposta) {
+                const estados = resposta.getElementsByTagName('estado')
+
+                const itens = Array.from(estados).reduce(
+                    (html, estado) => html + `<li>${estado.getAttribute('nome')}</li>`, ''
+                )
+
+                document.querySelector('#lista').innerHTML = itens
+            },
+            erro(e) {
+                console.error('Erro ao carregar XML:', e)
+            }
+        })
     </script>
 </body>
+
+</html>
