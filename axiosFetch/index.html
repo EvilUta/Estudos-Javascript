@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Yes or No API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fafafa;
+      padding-top: 50px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 8px 15px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    img {
+      width: 500px;
+      margin: 20px auto;
+      border-radius: 8px;
+      display: none; /* começa escondida */
+    }
+    
+    #resposta {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 10px;
+   }
+
+    .sim {
+        color: green;
+    }
+
+    .nao {
+        color: red;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1>Faça sua pergunta</h1>
+  <input id="pergunta" type="text" placeholder="Digite algo...">
+  <button id="botao">Perguntar</button>
+
+  <div id="resposta"></div>
+  <img id="imagem" src="" alt="">
+
+  <script src="app.js"></script>
+</body>
+</html>
