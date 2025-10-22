@@ -1,21 +1,22 @@
 {
-    "compilerOptions": {
-        "allowJs": true,
-        "outDir": "dist",
-        "module": "nodenext",
-        "target": "esnext",
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "sourceMap": true,
-        "declaration": true,
-        "declarationMap": true,
-        "moduleResolution": "nodenext",
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "react-jsx"
-    },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "../dist",
+    "module": "nodenext",
+    "noEmitOnError": false,
+    "target": "esnext",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "../dist"]
 }
