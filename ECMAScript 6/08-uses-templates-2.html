@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>02.-- Template Literal para Html Fragments</title>
+    <title>02 - Template Literal para HTML Fragments</title>
 </head>
 <body>
 </body>
@@ -14,5 +14,32 @@
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, officia, perspiciatis? Architecto, molestias autem. Repellat, laborum deserunt soluta necessitatibus. Tenetur illo, id magnam numquam neque illum temporibus, in qui eos.',
         tags: ['es6', 'js', 'template-literal']
     };
+
+    const markup = `
+      <article> 
+        <header>  
+          <h1>${article.title}</h1>
+        </header> 
+        <section> 
+          <p>${article.intro}</p>
+          <p>${article.body}</p>
+        </section>
+        <footer>
+          <ul>
+            ${article.tags.map(tag => `<li>${tag}</li>`).join('')}
+          </ul>
+        </footer>
+      </article>  
+    `;
+
+    document.body.innerHTML = markup;
 </script>
 </html>
+
+<!--E insere esse HTML dentro do corpo da página (document.body.innerHTML).
+O código gera um artigo HTML dinamicamente a partir de um objeto JS.
+define o article e a variavel markup
+article.tags → é o array ['es6', 'js', 'template-literal'].
+.map() percorre cada elemento e retorna um novo array de strings HTML:
+insere no corpo do html com -> document.body.innerHTML = markup;
+

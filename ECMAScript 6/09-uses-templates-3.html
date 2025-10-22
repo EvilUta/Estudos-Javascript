@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>03 - Tagged template LiteraT</title>
+</head>
+<style>
+    .green {
+        color: green;
+        font-size: 25px;
+    }
+</style>
+<body>
+</body>
+
+<script>
+
+    const city = 'Dublin';
+    const something = 'Guinness';
+    const otherThing = 'Leprechaums';
+
+    // para colocar stilo dentro do script criado
+    function green(template, ...values){ // primeiro voce coloca os parametros que e o Template e todas as const que foram utilizadas
+        return template.reduce((accumulator, part, i)=>{
+            return `
+                ${accumulator}
+                <spam class="green">${values[i - 1].toUpperCase()}</span>
+                ${part}
+            `
+        }) //// lógica que retorna o novo acumulador
+        // debugger // 👈 O código pausa aqui -> normalmente para ver o valor do resultado
+    }
+
+    const ireland = green`I live in ${city} the city of ${something} and ${otherThing}`;
+
+    //para colocar dentro da tela(body)
+    document.body.innerHTML = ireland;
+
+</script>
+</html>
