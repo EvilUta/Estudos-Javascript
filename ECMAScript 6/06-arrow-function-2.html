@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>Click Me!</button>
+</body>
+
+<script>
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', function() {
+        console.log(this) // objeto o qual nos estamos interagindo -> referente ao btn
+    })    
+
+    // forma com arrow function -> a arrow function se importa com o contexto e nao com o objeto de fato
+    // const btn = document.getElementById('btn')
+    // btn.addEventListener('click', () => {
+    //     console.log(this) 
+    // })   
+    // nesse caso onde vc quer clicar num botao e melhor usar uma funcao doq uma arrow function
+    
+</script>
+</html>
