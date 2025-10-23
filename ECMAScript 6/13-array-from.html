@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Array from</title>
+</head>
+<body>
+    <ul id ='list'>
+        <li>Renan</li>
+        <li>Kathleen</li>
+        <li>Renan e Kathleen</li>
+    </ul>
+    
+</body>
+<script>
+// const text = 'Renan'
+// console.log(Array.from(text)) // transforma a variavel criada em um array todo separado 
+
+const list = document.querySelectorAll('#list li') // o # e por ser uma ID e li e as linhas, entao seleciona a classe e as linhas
+const listArray = Array.from(list)
+console.log(listArray)
+
+const names = listArray.map((name) => name.textContent) //textContent e umas das propriedades q aparecem no browser quando clica f12 -> colocado essa para pegar o contexto geral
+console.log(names);
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises examples</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var posts = fetch('https://willianjusten.com.br/search.json') // fetch e a chamada do ajax no js
+
+// pending ainda esta sendo resolvida
+// resolved 
+// rejected
+
+
+// setTimeout(()=>{
+//     console.log(posts);
+// }, 3000)
+
+posts   
+    .then(data => data.json()) // com a variavel posts retornar com then com o parametro para voltar para json
+    .then(data => data.map(post => {
+    console.log(post.tittle)
+    }))
+    .catch(err => console.log('Erro:', err));
+</script>
+</html>
+
+
+<!-- Aparentemente a url nao funciona mais -->
