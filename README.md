@@ -76,7 +76,6 @@ Cada pasta representa um **módulo ou tema específico** estudado — desde fund
 ---
 
 ## 📅 Atualizações recentes  
-📌 *Último commit:* Aula sobre CSS e JS Clock com atualização de nomes.  
 📅 *Repositório em constante evolução* — novos módulos são adicionados conforme avanço nos estudos.
 
 ---
