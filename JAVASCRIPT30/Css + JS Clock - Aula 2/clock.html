@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Relógio Analógico (CSS + JS)</title>
+    <link rel="stylesheet" href="clockStyle.css">
+</head>
+<body>
+  <div class="clock" id="clock" aria-label="Relógio analógico">
+    <div class="hands" id="hands">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+    </div>
+
+    <div class="center" aria-hidden="true"></div>
+    <div class="label">Relógio CSS + JS</div>
+  </div>
+
+  <script>
+    const clock = document.getElementById('clock');
+    const hourEl = document.getElementById('hour');
+    const minuteEl = document.getElementById('minute');
+    const secondEl = document.getElementById('second');
+
+    function buildFace() {
+      const size = clock.clientWidth;
+      Array.from(clock.querySelectorAll('.tick, .num')).forEach(n => n.remove());
+
+      for (let i = 0; i < 60; i++) {
+        const tick = document.createElement('div');
+        tick.className = 'tick' + (i % 5 === 0 ? ' hour' : '');
+        const angle = i * 6;
+        tick.style.transform = `rotate(${angle}deg) translateY(8px)`;
+        clock.appendChild(tick);
+      }
+
+      for (let h = 1; h <= 12; h++) {
+        const num = document.createElement('div');
+        num.className = 'num';
+        num.textContent = h;
+        const angle = (h % 12) * 30;
+        const radius = (clock.clientWidth / 2) * 0.78;
+        const rad = (angle - 90) * Math.PI / 180;
+        const cx = clock.clientWidth / 2 + radius * Math.cos(rad);
+        const cy = clock.clientHeight / 2 + radius * Math.sin(rad);
+        num.style.left = `${cx}px`;
+        num.style.top = `${cy}px`;
+        clock.appendChild(num);
+      }
+    }
+
+    buildFace();
+    window.addEventListener('resize', () => {
+      clearTimeout(window.resizeTimer);
+      window.resizeTimer = setTimeout(buildFace, 120);
+    });
+
+    function updateHands() {
+      const now = new Date();
+      const hours = now.getHours() % 12;
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const ms = now.getMilliseconds();
+
+      const hoursAngle = (hours * 30) + (minutes * 0.5) + (seconds * (0.5 / 60));
+      const minutesAngle = (minutes * 6) + (seconds * 0.1) + (ms * (0.1 / 1000));
+      const secondsAngle = (seconds * 6) + (ms * 0.006);
+
+      hourEl.style.transform = `translate(-50%,-100%) rotate(${hoursAngle}deg)`;
+      minuteEl.style.transform = `translate(-50%,-100%) rotate(${minutesAngle}deg)`;
+      secondEl.style.transform = `translate(-50%,-100%) rotate(${secondsAngle}deg)`;
+
+      requestAnimationFrame(updateHands);
+    }
+
+    requestAnimationFrame(updateHands);
+  </script>
+</body>
+</html>

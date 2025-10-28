@@ -1,0 +1,151 @@
+
+    :root{
+      --size: clamp(220px, 40vmin, 420px);
+      --bg: #0f172a;
+      --face: linear-gradient(180deg,#071026,#0b1a2b);
+      --accent: #f8fafc;
+      --hand-hour-width: 6px;
+      --hand-minute-width: 4px;
+      --hand-second-width: 2px;
+      --shadow: 0 6px 20px rgba(2,6,23,0.6);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--accent);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .clock{
+      width:var(--size);
+      height:var(--size);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--face);
+      box-shadow: var(--shadow), inset 0 -6px 15px rgba(0,0,0,0.4);
+      position:relative;
+      border:6px solid rgba(255,255,255,0.03);
+    }
+
+    /* ticks */
+    /* ticks */
+    .tick {
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.45);
+        top: 0;
+        left: 50%;
+        transform-origin: center calc(var(--size) / 2);
+        transform: rotate(0deg) translateX(-50%);
+        border-radius: 2px;
+    }
+
+    .tick.hour {
+        height: 16px;
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+
+    /* numbers */
+    .num{
+      position:absolute;
+      width:30px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      transform:translate(-50%,-50%);
+      font-weight:600;
+      font-size:clamp(12px, 2vmin, 18px);
+      color:rgba(255,255,255,0.9);
+      user-select:none;
+    }
+
+    /* center pin */
+    .center{
+      position:absolute;
+      width:14px;
+      height:14px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(180deg,#fff,#cbd5e1);
+      border-radius:50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      z-index:6;
+    }
+
+    /* hands wrapper */
+    .hands{
+      position:relative;
+      width:70%;
+      height:70%;
+      display:block;
+      z-index:5;
+    }
+
+    .hand{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform-origin:50% 100%;
+      transform:translate(-50%,-100%) rotate(0deg);
+      border-radius:8px;
+      transition: transform 0.08s linear;
+      will-change: transform;
+    }
+
+    .hand.hour{
+      width: calc(var(--hand-hour-width));
+      height:40%;
+      background:linear-gradient(180deg,#e6eef8,#b8cbe6);
+      z-index:4;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .hand.minute{
+      width: calc(var(--hand-minute-width));
+      height:52%;
+      background:linear-gradient(180deg,#f8fafc,#e2e8f0);
+      z-index:4;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+    .hand.second{
+      width: calc(var(--hand-second-width));
+      height:58%;
+      background:linear-gradient(180deg,#ff7b7b,#ff3b3b);
+      z-index:3;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    }
+
+    .second::after{
+      content:"";
+      position:absolute;
+      bottom:10%;
+      left:-6px;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:rgba(0,0,0,0.15);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hand { transition: none; }
+    }
+
+    .label{
+      position:absolute;
+      bottom:-56px;
+      font-size:13px;
+      color:rgba(255,255,255,0.7);
+      letter-spacing:0.04em;
+    }
