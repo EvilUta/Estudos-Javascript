@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado de Sons</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="display" id="display">Pressione uma tecla 🎹</div>
+
+  <div class="keys">
+    <div class="key" data-key="A" data-sound="clap-808">A</div>
+    <div class="key" data-key="S" data-sound="hihat-808">S</div>
+    <div class="key" data-key="D" data-sound="kick-808">D</div>
+    <div class="key" data-key="F" data-sound="openhat-808">F</div>
+    <div class="key" data-key="G" data-sound="perc-808">G</div>
+    <div class="key" data-key="H" data-sound="ride-acoustic02">H</div>
+    <div class="key" data-key="J" data-sound="snare-808">J</div>
+    <div class="key" data-key="K" data-sound="tom-808">K</div>
+    <div class="key" data-key="L" data-sound="crash-808">L</div>
+  </div> 
+
+  <script>
+    const keys = document.querySelectorAll('.key');
+    const display = document.getElementById('display');
+
+    function playSound(letter) {
+      const keyDiv = document.querySelector(`.key[data-key="${letter}"]`);
+      if (!keyDiv) return;
+
+      const soundName = keyDiv.dataset.sound;
+      const audio = new Audio(`sounds/${soundName}.wav`);
+      audio.currentTime = 0;
+      audio.play();
+
+      // Animação da tecla
+      keyDiv.classList.add('active');
+      setTimeout(() => keyDiv.classList.remove('active'), 150);
+
+      // Atualiza o visor
+      display.textContent = `🎵 Tocando: ${soundName.toUpperCase()}`;
+      display.classList.add('show');
+      clearTimeout(display.timeout);
+      display.timeout = setTimeout(() => {
+        display.classList.remove('show');
+      }, 1000);
+    }
+
+    // Clique do mouse
+    keys.forEach(key => {
+      key.addEventListener('click', () => playSound(key.dataset.key));
+    });
+
+    // Tecla do teclado
+    document.addEventListener('keydown', e => {
+      playSound(e.key.toUpperCase());
+    });
+  </script>
+</body>
+</html>
