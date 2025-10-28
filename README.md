@@ -76,7 +76,7 @@ Cada pasta representa um **módulo ou tema específico** estudado — desde fund
 ---
 
 ## 📅 Atualizações recentes  
-📅 *Repositório em constante evolução* — novos módulos são adicionados conforme avanço nos estudos.
+🎈 *Repositório em constante evolução* — novos módulos são adicionados conforme avanço nos estudos.
 
 ---
 
