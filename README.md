@@ -91,7 +91,7 @@ Pretendo expandir para frameworks como **React**, **Vue** e **Next.js** futurame
 ## 📬 Contato  
 
 👨‍💻 **Renan Gustavo Lemes de Souza**  
-📧 [renan.lemes@uotz.tech](mailto:renangustavolemes@gmail.com)  
+📧 [renangustavolemes@gmail.com](mailto:renangustavolemes@gmail.com)  
 🌐 [GitHub - EvilUta](https://github.com/EvilUta)
 
 ---
