@@ -99,7 +99,3 @@ Pretendo expandir para frameworks como **React**, **Vue** e **Next.js** futurame
 
 ---
 
-
-
-
-
