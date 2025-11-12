@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14 Truques JS Interativos</title>
+  <style>
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: #f7f8fa;
+      margin: 0;
+      padding: 2rem;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      color: #111;
+      margin-bottom: 2rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    button {
+      background: #000000;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #0056cc;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #00ff90;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      min-height: 120px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💡 14 Truques JavaScript Interativos</h1>
+  <div class="container" id="buttons"></div>
+  <pre id="output">// clique em um botão acima 👆</pre>
+
+  <script>
+    const output = document.getElementById("output");
+
+    const log = (...args) => {
+      output.textContent = args
+        .map(a => (typeof a === "object" ? JSON.stringify(a, null, 2) : a))
+        .join(" ");
+    };
+
+    const tricks = [
+      { title: "1️⃣ Console Tricks", fn: () => {
+          console.table([{ name: "Renan", age: 20 }, { name: "Gustavo", age: 25 }]);
+          log("Abra o console para ver o resultado com console.table()!");
+        }},
+
+      { title: "2️⃣ Desestruturação", fn: () => {
+          const user = { name: "Renan", age: 20, city: "Tatuí" };
+          const { name, city } = user;
+          log(`Nome: ${name}, Cidade: ${city}`);
+        }},
+
+      { title: "3️⃣ Optional Chaining", fn: () => {
+          const person = { profile: { email: "teste@email.com" } };
+          log(person?.profile?.email ?? "sem email");
+        }},
+
+      { title: "4️⃣ Nullish Coalescing", fn: () => {
+          const valor = 0 ?? 42;
+          const valor2 = null ?? 42;
+          log(`valor = ${valor}, valor2 = ${valor2}`);
+        }},
+
+      { title: "5️⃣ Short-circuit condition", fn: () => {
+          let isLogged = true, isAdmin = false;
+          let msgs = [];
+          isLogged && msgs.push("Usuário logado!");
+          isAdmin || msgs.push("Sem permissão!");
+          log(msgs.join("\n"));
+        }},
+
+      { title: "6️⃣ Spread e Rest", fn: () => {
+          const arr1 = [1, 2, 3];
+          const arr2 = [...arr1, 4, 5];
+          const soma = (...nums) => nums.reduce((a, b) => a + b, 0);
+          log("Array:", arr2, "Soma:", soma(1, 2, 3, 4));
+        }},
+
+      { title: "7️⃣ Map / Filter / Reduce", fn: () => {
+          const nums = [1, 2, 3, 4];
+          const dobrados = nums.map(n => n * 2);
+          const pares = nums.filter(n => n % 2 === 0);
+          const somaTotal = nums.reduce((acc, n) => acc + n, 0);
+          log({ dobrados, pares, somaTotal });
+        }},
+
+      { title: "8️⃣ Array.from / Object.entries", fn: () => {
+          const arr = Array.from("Renan");
+          const obj = Object.entries({ a: 1, b: 2 });
+          log({ arr, obj });
+        }},
+
+      { title: "9️⃣ LocalStorage", fn: () => {
+          localStorage.setItem("tema", "dark");
+          const tema = localStorage.getItem("tema");
+          log(`Tema salvo: ${tema}`);
+        }},
+
+      { title: "🔟 Intl API", fn: () => {
+          const preco = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+          }).format(2500);
+          log(preco);
+        }},
+
+      { title: "11️⃣ Async/Await + Fetch", fn: async () => {
+          const resp = await fetch("https://jsonplaceholder.typicode.com/posts");
+          const dados = await resp.json();
+          log(dados.slice(0, 3));
+        }},
+
+      { title: "12️⃣ Debounce", fn: () => {
+          function debounce(fn, delay) {
+            let timer;
+            return (...args) => {
+              clearTimeout(timer);
+              timer = setTimeout(() => fn(...args), delay);
+            };
+          }
+          const logar = debounce(() => log("Executado com atraso!"), 500);
+          log("Espere 0.5s...");
+          logar();
+        }},
+
+      { title: "13️⃣ Object.freeze", fn: () => {
+          const pessoa = Object.freeze({ nome: "Renan" });
+          pessoa.nome = "Outro";
+          log(pessoa);
+        }},
+
+      { title: "14️⃣ Node.js Tools (CLI)", fn: () => {
+          log(`
+💻 Comandos úteis (rode no terminal):
+- npx serve
+- npm-check-updates
+- eslint / prettier
+- nodemon
+`);
+        }},
+    ];
+
+    const container = document.getElementById("buttons");
+    tricks.forEach(t => {
+      const btn = document.createElement("button");
+      btn.textContent = t.title;
+      btn.onclick = t.fn;
+      container.appendChild(btn);
+    });
+  </script>
+</body>
+</html>

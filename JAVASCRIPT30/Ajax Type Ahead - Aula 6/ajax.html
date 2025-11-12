@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca AJAX - Cidades</title>
+  <style>
+    body {
+      background: #f9b233;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+    }
+
+    .search-form input {
+      width: 320px;
+      padding: 10px 16px;
+      font-size: 18px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    ul.suggestions {
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+      width: 360px;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .suggestions li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+    }
+
+    .suggestions li span.population {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .hl {
+      background: #ffd54f;
+    }
+  </style>
+</head>
+<body>
+  <form class="search-form">
+    <input type="text" class="search" placeholder="Digite o nome da cidade...">
+  </form>
+
+  <ul class="suggestions">
+    <li>Filtrando resultados...</li>
+  </ul>
+
+  <script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/cities.json';
+    const cities = [];
+
+    // Busca os dados JSON
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => cities.push(...data));
+
+    // Função para encontrar correspondências
+    function findMatches(wordToMatch, cities) {
+      return cities.filter(place => {
+        const regex = new RegExp(wordToMatch, 'i');
+        return place.city.match(regex) || place.state.match(regex);
+      });
+    }
+
+    // Função que exibe os resultados
+    function displayMatches() {
+      const matchArray = findMatches(this.value, cities);
+      const html = matchArray.map(place => {
+        const regex = new RegExp(this.value, 'gi');
+        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+        return `
+          <li>
+            <span class="name">${cityName}, ${stateName}</span>
+            <span class="population">${parseInt(place.population).toLocaleString('pt-BR')}</span>
+          </li>
+        `;
+      }).join('');
+      suggestions.innerHTML = html || '<li>Nenhum resultado encontrado</li>';
+    }
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
+  </script>
+</body>
+</html>
+ 

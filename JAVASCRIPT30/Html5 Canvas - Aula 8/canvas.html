@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Paint (HTML + Canvas)</title>
+  <style>
+    :root{
+      --bg:#0f172a;         /* slate-900 */
+      --panel:#111827;      /* gray-900 */
+      --muted:#1f2937;      /* gray-800 */
+      --soft:#374151;       /* gray-700 */
+      --text:#e5e7eb;       /* gray-200 */
+      --accent:#22c55e;     /* green-500 */
+      --danger:#ef4444;     /* red-500 */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),#030712);
+      color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+      display:grid; grid-template-rows:auto 1fr; gap:12px;
+    }
+
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(6px);
+      background:rgba(2,6,23,.6); border-bottom:1px solid #0b1220;
+    }
+
+    .toolbar{
+      max-width:1100px; margin:auto; padding:10px 16px;
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    }
+
+    .group{ display:flex; align-items:center; gap:8px; padding:8px; background:var(--panel); border:1px solid #0b1220; border-radius:14px; box-shadow: var(--shadow); }
+    .sep{ width:1px; height:28px; background:var(--soft); margin:0 4px; opacity:.6; }
+
+    button, .chip{
+      appearance:none; border:1px solid var(--soft); background:var(--muted);
+      color:var(--text); padding:8px 12px; border-radius:12px; cursor:pointer; font-weight:600;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    button:hover{ transform: translateY(-1px); }
+    button.active{ outline:2px solid var(--accent); border-color:var(--accent); }
+    button.danger{ border-color:var(--danger); }
+
+    input[type="range"]{ accent-color: var(--accent); }
+    input[type="color"]{ width:36px; height:36px; border-radius:10px; border:1px solid var(--soft); background:transparent; padding:0; }
+
+    main{ display:grid; place-items:center; padding:10px 16px 24px; }
+
+    .stage{ width:min(1100px,95vw); height:70vh; background:#0b1220; border:1px solid #0b1220; border-radius:18px; overflow:hidden; box-shadow: var(--shadow); position:relative; }
+    canvas{ width:100%; height:100%; display:block; background:#0a0f1e; cursor: crosshair; }
+
+    .hint{ position:absolute; right:14px; bottom:12px; font-size:12px; color:#94a3b8; opacity:.9; background:#0b1220aa; padding:6px 10px; border-radius:999px; border:1px solid #0f172a; }
+
+    footer{ text-align:center; font-size:12px; color:#94a3b8; padding:6px 0 16px; }
+    a{ color:#a7f3d0; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="toolbar">
+      <div class="group" role="group" aria-label="Ferramentas">
+        <button id="tool-pencil" class="active" title="Pincel (B)">🖊️ Pincel</button>
+        <button id="tool-eraser" title="Borracha (E)">🩹 Borracha</button>
+        <span class="sep"></span>
+        <label class="chip" title="Cor do traço">
+          Cor <input id="color" type="color" value="#22c55e" />
+        </label>
+        <label class="chip" title="Espessura do traço">
+          Tamanho <input id="size" type="range" min="1" max="64" value="8" />
+        </label>
+      </div>
+
+      <div class="group" role="group" aria-label="Ações">
+        <button id="undo" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
+        <button id="redo" title="Refazer (Ctrl+Shift+Z)">↷ Refazer</button>
+        <span class="sep"></span>
+        <button id="clear" class="danger" title="Limpar tudo">🧹 Limpar</button>
+        <button id="save" title="Salvar como PNG">💾 Salvar</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="stage">
+      <canvas id="board"></canvas>
+      <div class="hint">Dica: pressione e segure para desenhar. Suporta mouse e toque.</div>
+    </div>
+  </main>
+
+  <footer>
+    Feito com &lt;canvas&gt; – funciona offline. Use <strong>B</strong> para Pincel, <strong>E</strong> para Borracha.
+  </footer>
+
+  <script>
+    // ===== Utilidades de resolução (HiDPI) =====
+    const dpr = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
+
+    const canvas = document.getElementById('board');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+    const colorEl = document.getElementById('color');
+    const sizeEl  = document.getElementById('size');
+
+    const pencilBtn = document.getElementById('tool-pencil');
+    const eraserBtn = document.getElementById('tool-eraser');
+    const undoBtn = document.getElementById('undo');
+    const redoBtn = document.getElementById('redo');
+    const clearBtn = document.getElementById('clear');
+    const saveBtn = document.getElementById('save');
+
+    let tool = 'pencil'; // 'pencil' | 'eraser'
+    let drawing = false;
+    let last = null; // último ponto
+
+    // Histórico (Undo/Redo)
+    const history = [];
+    const future = [];
+
+    function setCanvasSize(){
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const width = Math.floor(rect.width);
+      const height = Math.floor(rect.height);
+
+      // Salva imagem atual
+      const prev = ctx.getImageData(0,0,canvas.width,canvas.height);
+
+      canvas.width = Math.max(1, width * dpr);
+      canvas.height = Math.max(1, height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+
+      ctx.scale(dpr, dpr);
+      ctx.imageSmoothingEnabled = true;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      // Restaura imagem anterior (ajuste simples: desenha redimensionado)
+      if(prev.width && prev.height){
+        // cria um canvas offscreen na escala antiga e cola no novo
+        const off = document.createElement('canvas');
+        off.width = prev.width; off.height = prev.height;
+        off.getContext('2d').putImageData(prev, 0, 0);
+        ctx.save();
+        ctx.setTransform(1,0,0,1,0,0); // reset escala
+        ctx.drawImage(off, 0, 0, off.width, off.height, 0, 0, canvas.width, canvas.height);
+        ctx.restore();
+      } else {
+        // fundo "transparente escuro"
+        ctx.fillStyle = '#0a0f1e';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+      }
+    }
+
+    // Inicia tamanho
+    setCanvasSize();
+    window.addEventListener('resize', () => {
+      // Debounce simples
+      clearTimeout(window.__rsz);
+      window.__rsz = setTimeout(setCanvasSize, 120);
+    });
+
+    function startStroke(x,y){
+      drawing = true; last = {x,y};
+      // prepara estilo
+      ctx.save();
+      ctx.globalCompositeOperation = (tool === 'eraser') ? 'destination-out' : 'source-over';
+      ctx.strokeStyle = (tool === 'eraser') ? 'rgba(0,0,0,1)' : colorEl.value;
+      ctx.lineWidth = Number(sizeEl.value);
+      ctx.beginPath();
+      ctx.moveTo(x,y);
+    }
+
+    function drawStroke(x,y){
+      if(!drawing) return;
+      ctx.lineTo(x,y);
+      ctx.stroke();
+      last = {x,y};
+    }
+
+    function endStroke(){
+      if(!drawing) return;
+      drawing = false; last = null; ctx.closePath(); ctx.restore();
+      pushHistory();
+    }
+
+    function pushHistory(){
+      try {
+        const snap = ctx.getImageData(0,0,canvas.width,canvas.height);
+        history.push(snap);
+        // Limpa "future" (cadeia do redo)
+        future.length = 0;
+        refreshUndoRedoState();
+      } catch(e){
+        // Alguns navegadores podem bloquear por segurança (tainted canvas). Aqui não usamos imagens externas.
+        console.warn('Não foi possível salvar o histórico:', e);
+      }
+    }
+
+    function refreshUndoRedoState(){
+      undoBtn.disabled = history.length === 0;
+      redoBtn.disabled = future.length === 0;
+    }
+
+    function undo(){
+      if(history.length === 0) return;
+      const top = history.pop();
+      future.push(top);
+      const prev = history[history.length - 1];
+      // Limpa canvas
+      ctx.save();
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.restore();
+
+      if(prev){
+        ctx.putImageData(prev, 0, 0);
+      } else {
+        ctx.fillStyle = '#0a0f1e';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+      }
+      refreshUndoRedoState();
+    }
+
+    function redo(){
+      if(future.length === 0) return;
+      const next = future.pop();
+      if(next){ ctx.putImageData(next, 0, 0); history.push(next); }
+      refreshUndoRedoState();
+    }
+
+    function clearBoard(){
+      ctx.save();
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.restore();
+      ctx.fillStyle = '#0a0f1e';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      pushHistory();
+    }
+
+    function savePNG(){
+      // Exporta respeitando o DPR (já usamos width/height reais do canvas)
+      const url = canvas.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = url; a.download = `desenho-${Date.now()}.png`;
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+
+    // ===== Eventos de ponteiro (mouse + touch) =====
+    function getPos(evt){
+      const rect = canvas.getBoundingClientRect();
+      if(evt.touches && evt.touches[0]){
+        return {
+          x: (evt.touches[0].clientX - rect.left),
+          y: (evt.touches[0].clientY - rect.top)
+        }
+      }
+      return { x: (evt.clientX - rect.left), y: (evt.clientY - rect.top) };
+    }
+
+    canvas.addEventListener('mousedown', (e)=>{
+      const p = getPos(e); startStroke(p.x, p.y);
+    });
+    canvas.addEventListener('mousemove', (e)=>{
+      if(!drawing) return; const p = getPos(e); drawStroke(p.x, p.y);
+    });
+    window.addEventListener('mouseup', endStroke);
+
+    // Touch
+    canvas.addEventListener('touchstart', (e)=>{
+      e.preventDefault(); const p = getPos(e); startStroke(p.x, p.y);
+    }, {passive:false});
+    canvas.addEventListener('touchmove', (e)=>{
+      e.preventDefault(); const p = getPos(e); drawStroke(p.x, p.y);
+    }, {passive:false});
+    canvas.addEventListener('touchend', (e)=>{ e.preventDefault(); endStroke(); }, {passive:false});
+
+    // ===== UI =====
+    function setTool(next){
+      tool = next;
+      pencilBtn.classList.toggle('active', tool==='pencil');
+      eraserBtn.classList.toggle('active', tool==='eraser');
+      canvas.style.cursor = (tool==='eraser') ? 'cell' : 'crosshair';
+    }
+
+    pencilBtn.addEventListener('click', ()=> setTool('pencil'));
+    eraserBtn.addEventListener('click', ()=> setTool('eraser'));
+
+    undoBtn.addEventListener('click', undo);
+    redoBtn.addEventListener('click', redo);
+    clearBtn.addEventListener('click', clearBoard);
+    saveBtn.addEventListener('click', savePNG);
+
+    // ===== Atalhos =====
+    window.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase() === 'b'){ setTool('pencil'); }
+      if(e.key.toLowerCase() === 'e'){ setTool('eraser'); }
+      const z = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z';
+      if(z && !e.shiftKey){ e.preventDefault(); undo(); }
+      if(z && e.shiftKey){ e.preventDefault(); redo(); }
+    });
+
+    // Primeiro snapshot para permitir 1º undo
+    pushHistory();
+  </script>
+</body>
+</html>
