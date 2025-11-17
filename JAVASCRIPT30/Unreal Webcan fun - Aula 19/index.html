@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>📸 Unreal Webcam Fun TURBINADO (V2)</title>
+
+  <style>
+    body {
+      background: #0c0c0c;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    /* O VÍDEO ORIGINAL FICA INVISÍVEL */
+    video.player {
+      display: none;
+    }
+
+    canvas.photo {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.07);
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button, select {
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      background: #222;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover, select:hover {
+      background: #333;
+    }
+
+    .photos {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .photos img {
+      width: 140px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>📸 Unreal Webcam Fun TURBINADO</h1>
+
+  <video class="player" autoplay></video>
+  <canvas class="photo"></canvas>
+
+  <div class="controls">
+    <select id="effect">
+      <option value="none">Nenhum efeito</option>
+      <option value="redEffect">🔥 Red Boost</option>
+      <option value="rgbSplit">🟣 RGB Split (Glitch)</option>
+      <option value="blueIce">❄️ Blue Ice</option>
+      <option value="invert">🔄 Invert Colors</option>
+      <option value="pixelate">🟦 Pixelate</option>
+    </select>
+
+    <button id="capture">📸 Tirar Foto</button>
+  </div>
+
+  <div class="photos"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
