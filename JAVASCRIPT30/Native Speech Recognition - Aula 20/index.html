@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Native Speech Recognition Turbo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #222 0, #050509 55%, #000 100%);
+      color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      padding: 24px 24px 20px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .title-block h1 {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .title-block h1 span {
+      font-size: 1.7rem;
+    }
+
+    .title-block p {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #4b5563;
+      box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .status-dot.listening {
+      background: #22c55e;
+      box-shadow: 0 0 12px 2px rgba(34, 197, 94, 0.7);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 14px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .left-controls,
+    .right-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      color: #f9fafb;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.45);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+    }
+
+    button:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    button:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    button.is-paused {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+    }
+
+    select {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      padding: 8px 34px 8px 12px;
+      font-size: 0.9rem;
+      appearance: none;
+      position: relative;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .select-wrapper::after {
+      content: "▾";
+      position: absolute;
+      right: 10px;
+      font-size: 0.7rem;
+      pointer-events: none;
+      color: #9ca3af;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .hint strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .transcript-container {
+      background: #020617;
+      border-radius: 14px;
+      padding: 14px 14px 10px;
+      border: 1px solid #1f2937;
+      max-height: 360px;
+      overflow-y: auto;
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .line {
+      font-size: 0.96rem;
+      line-height: 1.5;
+      padding: 6px 8px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .line.current {
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.5);
+    }
+
+    .line.finished {
+      color: #d1d5db;
+    }
+
+    .line .tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-right: 6px;
+    }
+
+    .unsupported {
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(127, 29, 29, 0.2);
+      border: 1px solid rgba(248, 113, 113, 0.6);
+      color: #fecaca;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .app {
+        padding: 18px 16px 14px;
+      }
+
+      .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .title-block h1 {
+        font-size: 1.2rem;
+      }
+
+      .controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="app-header">
+      <div class="title-block">
+        <h1><span>🎤</span> Native Speech Recognition Turbo</h1>
+        <p>Baseado na aula 20 do Wes Bos, com UI turbinada.</p>
+      </div>
+
+      <div class="status">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Pausado</span>
+      </div>
+    </div>
+
+    <div id="unsupportedMessage" class="unsupported" style="display:none;">
+      Seu navegador não parece suportar a Web Speech API (SpeechRecognition).
+      Tente usar o Google Chrome no desktop.
+    </div>
+
+    <div class="controls">
+      <div class="left-controls">
+        <button id="toggleBtn" class="is-paused">
+          ▶️ Iniciar gravação
+        </button>
+      </div>
+
+      <div class="right-controls">
+        <div class="select-wrapper">
+          <select id="languageSelect">
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Español (ES)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">
+      Fale normalmente e veja o texto aparecer em tempo real.  
+      Comandos úteis: <strong>"limpar tudo"</strong>, <strong>"nova linha"</strong>.
+    </p>
+
+    <div class="transcript-container" id="transcript">
+      <!-- linhas de texto são inseridas via JS -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
