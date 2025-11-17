@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Konami Code - Modo Minecraft</title>
+  <style>
+    body {
+      background: #050805;
+      color: #00ff66;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 26px;
+      overflow: hidden;
+    }
+
+    /* Texto central */
+    .msg {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* PARTICULAS GENÉRICAS (se quiser usar depois) */
+    .particle {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fly 1s ease-out forwards;
+      z-index: 9001;
+    }
+    @keyframes fly {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -800%) scale(0.1); opacity: 0; }
+    }
+
+    /* FLASH VERDE (dano) */
+    .mc-flash {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 255, 80, 0.5);
+      z-index: 9999;
+    }
+
+    /* PARTICULAS DE BLOCO */
+    .mc-particle {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      z-index: 9500;
+      animation: mc-fly 0.8s ease-out forwards;
+    }
+    @keyframes mc-fly {
+      from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      to   { transform: translate(-50%, -200%) scale(0.3); opacity: 0; }
+    }
+
+    /* BLOCOS CAINDO */
+    .mc-block {
+      position: fixed;
+      top: -12vh;
+      width: 48px;
+      height: 48px;
+      background-size: cover;
+      background-position: center;
+      image-rendering: pixelated;
+      animation: blockFall linear forwards;
+      z-index: 9300;
+    }
+    @keyframes blockFall {
+      from { transform: translateY(-15vh); }
+      to   { transform: translateY(120vh); }
+    }
+
+    /* GALINHA ANDANDO */
+    .mc-chicken {
+      position: fixed;
+      height: 120px;
+      bottom: 0;
+      left: -200px;
+      animation: chickenMove 4s linear forwards;
+      image-rendering: pixelated;
+      z-index: 10001;
+    }
+    @keyframes chickenMove {
+      from { left: -220px; }
+      to   { left: 110vw; }
+    }
+
+    /* FUMAÇA VERDE */
+    .mc-fog {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 40, 0, 0.45);
+      backdrop-filter: blur(2px);
+      z-index: 9200;
+      pointer-events: none;
+    }
+
+    /* LOW FPS (dando umas piscadas) */
+    @keyframes lowfps {
+      0% { opacity: 1; }
+      50% { opacity: 0.35; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="msg">Digite o código Konami...</div>
+
+  <script>
+    const pressed = [];
+    const secretCode = [
+      "ArrowUp","ArrowUp","ArrowDown","ArrowDown",
+      "ArrowLeft","ArrowRight","ArrowLeft","ArrowRight",
+      "b","a"
+    ];
+
+    window.addEventListener("keyup", (e) => {
+      pressed.push(e.key);
+      if (pressed.length > secretCode.length) pressed.shift();
+
+      if (pressed.join() === secretCode.join()) {
+        activateMinecraftMode();
+      }
+    });
+
+    /* ============================
+          🎮 MINECRAFT MODE
+    ============================ */
+    function activateMinecraftMode() {
+      console.log("🟩 MODO MINECRAFT ATIVADO!");
+
+      minecraftShader();
+      playHitSound();
+      flashScreenGreen();
+      blockParticles(60);
+      spawnBlocks(25);
+      chickenWalk();
+      fogEffect();
+      lowFpsEffect();
+    }
+
+    // shader verde no body
+    function minecraftShader() {
+      document.body.style.transition = "filter 0.2s";
+      document.body.style.filter = "sepia(1) hue-rotate(60deg) saturate(3)";
+      setTimeout(() => document.body.style.filter = "", 2500);
+    }
+
+    // som de dano
+    function playHitSound() {
+      const audio = new Audio(
+        "https://www.myinstants.com/media/sounds/minecraft-damage.mp3"
+      );
+      audio.volume = 0.9;
+      audio.play();
+    }
+
+    // flash verde
+    function flashScreenGreen() {
+      const flash = document.createElement("div");
+      flash.className = "mc-flash";
+      document.body.appendChild(flash);
+      setTimeout(() => flash.remove(), 300);
+    }
+
+    // partículas de bloco quebrando
+    function blockParticles(amount) {
+      for (let i = 0; i < amount; i++) {
+        const p = document.createElement("div");
+        p.className = "mc-particle";
+        p.style.left = innerWidth / 2 + "px";
+        p.style.top = innerHeight / 2 + "px";
+        p.style.background = randomBlockColor();
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 900);
+      }
+    }
+
+    function randomBlockColor() {
+      const colors = [
+        "#6b4f28", // dirt
+        "#8d6e33", // grass-ish
+        "#bfb48f", // sand/stone
+        "#3a3a3a", // stone
+        "#2f754a", // moss
+        "#29a3c4"  // diamond-ish
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // blocos caindo
+    function spawnBlocks(amount) {
+      for (let i = 0; i < amount; i++) {
+        const block = document.createElement("div");
+        block.className = "mc-block";
+
+        // cores estilo blocos
+        block.style.backgroundColor = randomBlockColor();
+
+        // aleatório na largura
+        block.style.left = Math.random() * 100 + "vw";
+        // velocidade aleatória
+        block.style.animationDuration = (Math.random() * 2 + 1.8) + "s";
+
+        document.body.appendChild(block);
+        setTimeout(() => block.remove(), 4000);
+      }
+    }
+
+    // galinha
+    function chickenWalk() {
+      const img = document.createElement("img");
+      img.src = "Chicken_JE1_BE1.webp";
+      img.className = "mc-chicken";
+      document.body.appendChild(img);
+      setTimeout(() => img.remove(), 4200);
+    }
+
+    // fumaça
+    function fogEffect() {
+      const fog = document.createElement("div");
+      fog.className = "mc-fog";
+      document.body.appendChild(fog);
+      setTimeout(() => fog.remove(), 2200);
+    }
+
+    // efeito "travando"
+    function lowFpsEffect() {
+      document.body.style.animation = "lowfps 0.18s steps(2) 10";
+      setTimeout(() => document.body.style.animation = "", 1800);
+    }
+  </script>
+</body>
+</html>

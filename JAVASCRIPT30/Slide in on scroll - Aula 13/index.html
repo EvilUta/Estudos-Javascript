@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide On Scroll - Wes Bos</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      line-height: 1.4;
+      background: #111;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 38px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      font-size: 22px;
+    }
+
+    .slide-in {
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: all 0.5s ease-out;
+    }
+
+    .slide-in.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .from-right {
+      transform: translateX(50%);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      margin: 50px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Slide On Scroll</h1>
+
+  <div class="content">
+    <p>Role a página para ver as imagens deslizando.</p>
+
+    <img src="https://picsum.photos/id/237/900/500" class="slide-in">
+    <img src="https://picsum.photos/id/1025/900/500" class="slide-in from-right">
+    <img src="https://picsum.photos/id/1003/900/500" class="slide-in">
+    <img src="https://picsum.photos/id/1024/900/500" class="slide-in from-right">
+    <img src="https://picsum.photos/id/1069/900/500" class="slide-in">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

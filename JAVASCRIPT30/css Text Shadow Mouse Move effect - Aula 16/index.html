@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Text Shadow Mouse Move - Wes Bos</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #222, #050509 60%);
+      color: #fff;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      cursor: crosshair;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 0 rgba(0, 0, 0, 0.7);
+      transition: text-shadow 0.05s;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Text Shadow</h1>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
