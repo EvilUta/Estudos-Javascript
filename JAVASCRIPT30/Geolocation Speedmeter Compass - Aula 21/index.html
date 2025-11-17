@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Geolocation Speedometer & Compass</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1f2933, #020617 55%, #000 100%);
+      color: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 18px;
+      padding: 24px 26px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.7);
+      max-width: 420px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    h1 span {
+      font-size: 1.6rem;
+      margin-right: 6px;
+    }
+
+    .speed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .speed-value {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .speed-unit {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .compass {
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: radial-gradient(circle, #020617 0, #020617 40%, #0b1220 85%);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 1),
+        0 18px 45px rgba(0, 0, 0, 0.85);
+    }
+
+    .compass::before {
+      content: "N";
+      position: absolute;
+      top: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: #9ca3af;
+    }
+
+    .compass::after {
+      content: "S";
+      position: absolute;
+      bottom: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: #4b5563;
+    }
+
+    .arrow {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 80px solid #f97316;
+      filter: drop-shadow(0 5px 10px rgba(249, 115, 22, 0.6));
+      transform-origin: 50% 80%;
+      transform: rotate(0deg);
+      transition: transform 0.12s ease-out;
+    }
+
+    .status {
+      font-size: 0.83rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1><span>🧭</span>Speedometer & Compass</h1>
+
+    <div class="speed">
+      <div class="speed-value" id="speedValue">0</div>
+      <div class="speed-unit">km/h</div>
+    </div>
+
+    <div class="compass">
+      <div class="arrow" id="arrow"></div>
+    </div>
+
+    <p class="status" id="status">Permitir acesso à localização para ver a velocidade e direção.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
