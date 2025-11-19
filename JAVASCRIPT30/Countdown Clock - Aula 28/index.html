@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Countdown</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <h1 class="title">⏳ Turbo Countdown</h1>
+
+  <div class="timer-circle">
+    <svg class="progress-ring" width="260" height="260">
+      <circle class="progress-ring__background" cx="130" cy="130" r="120" />
+      <circle class="progress-ring__progress" cx="130" cy="130" r="120" />
+    </svg>
+    <div class="time-display">
+      <span class="time-left">00:00</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button data-time="300">5 min</button>
+    <button data-time="600">10 min</button>
+    <button data-time="1200">20 min</button>
+  </div>
+
+  <form class="custom">
+    <input type="number" id="customMinutes" placeholder="Minutos" min="1">
+    <button type="submit">Iniciar</button>
+  </form>
+
+  <div class="actions">
+    <button id="pauseBtn">⏸ Pausar</button>
+    <button id="resumeBtn">▶ Continuar</button>
+    <button id="resetBtn">🔁 Reset</button>
+  </div>
+
+  <div class="end-time"></div>
+
+  <h2>📜 Histórico de Timers</h2>
+  <ul class="history"></ul>
+</div>
+
+<audio id="alarmSound" src="alarm.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

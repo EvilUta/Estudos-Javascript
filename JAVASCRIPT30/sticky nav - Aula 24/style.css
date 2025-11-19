@@ -1,0 +1,87 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  height: 200vh;
+}
+
+/* --------------- NAVBAR --------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  backdrop-filter: blur(0px);
+  background: rgba(15, 15, 15, 0);
+
+  transition: 
+      padding 0.3s ease,
+      background 0.3s ease,
+      backdrop-filter 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.25s ease;
+
+  z-index: 50;
+}
+
+/* NAV ATIVADA (sticky) */
+.navbar.sticky {
+  padding: 14px 50px;
+  background: rgba(15, 15, 15, 0.75);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+  transform: translateY(0); /* slide-down */
+}
+
+/* Estado inicial (navbar acima) */
+.navbar:not(.sticky) {
+  transform: translateY(-12px); /* leve slide */
+}
+
+/* LOGO */
+.logo {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* MENU */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.2s ease;
+}
+
+.menu a:hover {
+  color: #3b82f6;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  background: linear-gradient(135deg, #1d1d1d, #111);
+}
+
+/* CONTENT */
+.content {
+  padding: 80px 50px;
+}

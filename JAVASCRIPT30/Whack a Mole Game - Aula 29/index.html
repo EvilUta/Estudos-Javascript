@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jogo da Topeira</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game">
+    <h1>Jogo da Topeira</h1>
+    <p class="subtitle">Acerte antes dela sumir. Errou 3x, acabou!</p>
+
+    <div class="scoreboard">
+      <span>Pontos: <strong id="score">0</strong></span>
+      <span>Vidas: <strong id="lives">❤❤❤</strong></span>
+    </div>
+
+    <div class="grid">
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+      <div class="hole"><img src="topeira.png" class="mole hidden"></div>
+    </div>
+
+    <button id="start">Iniciar / Reiniciar</button>
+    <p id="message" class="message-tip">Clique em "Iniciar" para começar.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

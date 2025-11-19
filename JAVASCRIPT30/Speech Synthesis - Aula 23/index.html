@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Synthesis Turbo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <h1>🗣 Speech Synthesis</h1>
+
+    <textarea id="text" placeholder="Digite algo para eu falar..."></textarea>
+
+    <div class="controls">
+      <label>Voz:</label>
+      <div class="custom-select" id="voiceSelect">
+        <div class="selected">Carregando vozes...</div>
+        <div class="options"></div>
+        </div>
+
+
+      <div class="ranges">
+        <div>
+          <label>Velocidade</label>
+          <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+        </div>
+
+        <div>
+          <label>Tom</label>
+          <input type="range" id="pitch" min="0" max="2" step="0.1" value="1">
+        </div>
+
+        <div>
+          <label>Volume</label>
+          <input type="range" id="volume" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="speak">▶ Falar</button>
+        <button id="pause">⏸ Pausar</button>
+        <button id="resume">⏯ Continuar</button>
+        <button id="stop">⏹ Parar</button>
+      </div>
+    </div>
+
+    <div class="indicator">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

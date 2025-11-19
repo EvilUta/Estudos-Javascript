@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Stripe Turbo Dropdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <ul class="menu">
+      <li class="menu-item" data-dropdown="products">
+        <a>Produtos</a>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            <h3>Pagamentos</h3>
+            <p>APIs poderosas para aceitar pagamentos globalmente</p>
+
+            <div class="grid">
+              <div class="item">
+                <span class="icon">💳</span>
+                <div>
+                  <h4>Checkout</h4>
+                  <p>Pagamentos completos hospedados</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <span class="icon">📦</span>
+                <div>
+                  <h4>Billing</h4>
+                  <p>Assinaturas e faturamento</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <span class="icon">🌎</span>
+                <div>
+                  <h4>Payments</h4>
+                  <p>Integração global de pagamentos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="menu-item" data-dropdown="developers">
+        <a>Developers</a>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            <h3>Ferramentas de Dev</h3>
+            <p>Documentação, SDKs e exemplos</p>
+
+            <div class="grid">
+              <div class="item">
+                <span class="icon">⚙️</span>
+                <div>
+                  <h4>API Docs</h4>
+                  <p>Referência completa da API</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <span class="icon">🧪</span>
+                <div>
+                  <h4>Test Mode</h4>
+                  <p>Simulação de pagamentos</p>
+                </div>
+              </div>
+
+              <div class="item">
+                <span class="icon">📚</span>
+                <div>
+                  <h4>Samples</h4>
+                  <p>Exemplos prontos para copiar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="menu-item" data-dropdown="company">
+        <a>Empresa</a>
+        <div class="dropdown">
+          <div class="dropdown-content">
+            <h3>Sobre nós</h3>
+            <p>Conheça a equipe que está moldando o futuro dos pagamentos</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- Caixa de fundo dinâmica -->
+    <div class="dropdown-bg"></div>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

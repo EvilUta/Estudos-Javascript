@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="controls">
+    <button id="modeToggle">Modo: Bubbling</button>
+    <button id="stopToggle">stopPropagation: OFF</button>
+    <button id="onceToggle">once: OFF</button>
+  </div>
+
+  <div class="container outer" data-name="Outer">
+    <div class="container middle" data-name="Middle">
+      <div class="container inner" data-name="Inner">
+        Clique aqui
+      </div>
+    </div>
+  </div>
+
+  <div class="log">
+    <h3>Fluxo do Evento</h3>
+    <div id="logBox"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

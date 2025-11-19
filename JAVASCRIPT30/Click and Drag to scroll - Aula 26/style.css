@@ -1,0 +1,68 @@
+body {
+  background: #0f0f15;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  margin: 0;
+}
+
+.scroll-wrapper {
+  position: relative;
+  width: 80%;
+}
+
+.items {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 20px;
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: none;    /* Firefox */
+}
+.items::-webkit-scrollbar { display: none; }
+
+.items.dragging {
+  cursor: grabbing;
+}
+
+.item {
+  min-width: 220px;
+  height: 180px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 16px;
+  color: #fff;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-4px);
+}
+
+/* FADE lateral */
+.fade-left, .fade-right {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #0f0f15, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #0f0f15, transparent);
+}

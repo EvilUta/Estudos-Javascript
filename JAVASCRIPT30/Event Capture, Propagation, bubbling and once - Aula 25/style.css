@@ -1,0 +1,81 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #0f0f15;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 8px 16px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: .2s;
+}
+.controls button:hover {
+  background: #334155;
+}
+
+/* Container visual */
+.container {
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: 0.2s ease, box-shadow 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer { background: rgba(255, 255, 255, 0.05); }
+.middle{ background: rgba(255, 255, 255, 0.08); }
+.inner { background: rgba(255, 255, 255, 0.12); cursor: pointer; }
+
+.container.active {
+  border-color: #38bdf8;
+  box-shadow: 0 0 30px rgba(56,189,248,0.5);
+  transform: scale(1.02);
+}
+
+/* Log visual */
+.log {
+  width: 240px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 12px;
+  height: 300px;
+  overflow: auto;
+}
+
+#logBox {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.log-entry {
+  padding: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
