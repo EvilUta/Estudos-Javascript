@@ -1,0 +1,5 @@
+Ensinar javascript de verdade - Treinamento Ninja
+- Deixar sites e aplicacoes web mais dinamicas e interativas
+- Saberao usar corretamente a linguagem javascript em sua totalidade
+- entederao como os frameworks e bibliotecas javascript funcionam por baixo dos panos
+

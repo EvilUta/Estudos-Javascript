@@ -35,6 +35,7 @@ Cada pasta representa um **módulo ou tema específico** estudado — desde fund
 | **ajax/** | Exercícios sobre chamadas AJAX e comunicação com APIs. |
 | **autoFetch/** | Uso do `fetch()` e integração com Gulp. |
 | **css/** | Testes de estilização e layout. |
+| **Curso Javascript Ninja** | Javascript incial + frameworks |
 | **cursoTypescript/** | Aprendizado e prática com TypeScript. |
 | **dom/** | Manipulação do DOM e eventos (ex: jogo Flappy Bird). |
 | **gulp_inicial/** | Automação de tarefas com Gulp. |
