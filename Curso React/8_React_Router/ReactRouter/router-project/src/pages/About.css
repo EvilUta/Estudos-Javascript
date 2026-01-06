@@ -1,0 +1,69 @@
+/* Container principal */
+.about-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.about-container h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Parágrafos principais */
+.about-container p {
+  max-width: 750px;
+  margin: 0 auto 30px auto;
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.6rem;
+}
+
+/* Card central */
+.about-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  border: 1px solid #ececec;
+  margin: 40px auto;
+  max-width: 600px;
+  transition: 0.25s ease;
+}
+
+/* Card hover */
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Título do card */
+.about-card h3 {
+  font-size: 1.4rem;
+  color: #6a5acd;
+  margin-bottom: 15px;
+}
+
+/* Lista do card */
+.about-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-card li {
+  font-size: 1.05rem;
+  color: #444;
+  margin: 10px 0;
+}
+
+/* Rodapé */
+.about-footer {
+  margin-top: 40px;
+  color: #777;
+  font-size: 0.95rem;
+}

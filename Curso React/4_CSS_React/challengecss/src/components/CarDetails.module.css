@@ -1,0 +1,28 @@
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.item {
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+/* classes dinâmicas */
+.newCar {
+  color: green;
+  font-weight: bold;
+}
+
+.usedCar {
+  color: red;
+  font-weight: bold;
+}

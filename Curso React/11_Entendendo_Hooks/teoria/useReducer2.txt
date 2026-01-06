@@ -1,0 +1,5 @@
+Se o useReducer fosse utilizado como no exemplo passado, nao teria tanta diferenca no useState
+
+Por isso o reducer geralmente contem operacoes mais complexas, utilizando a estrutura switch com actions
+
+esta situacao foi apresentada na secao de context api

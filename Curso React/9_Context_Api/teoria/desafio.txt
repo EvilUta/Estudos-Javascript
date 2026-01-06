@@ -1,0 +1,7 @@
+Crie um novo projeto para trabalharmos com context
+
+este projeto deve ter instalado o react router
+
+crie 3 paginas 
+
+faca uma navbar e coloque o link para as tres

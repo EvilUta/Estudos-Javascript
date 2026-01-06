@@ -1,0 +1,6 @@
+O textarea pode ser considerado um input de texto normal
+
+utilizaremos o valuer para alterar o state incial
+
+e o evento onChange para modificar o valor do state
+

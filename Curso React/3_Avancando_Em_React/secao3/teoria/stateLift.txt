@@ -1,0 +1,9 @@
+Elevacao de state
+
+State lift e quando um valor e elevado do
+componente filho para o componente pai
+
+geralmente temos um componente que usa o state e outro que altera
+
+entao precisamos passar a alteracao para o componente pai e este
+passa para o componente que usa o state 

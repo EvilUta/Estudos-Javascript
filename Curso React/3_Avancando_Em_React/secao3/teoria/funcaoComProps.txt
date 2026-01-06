@@ -1,0 +1,5 @@
+As funcoes podem ser passsadas para as props normalmente
+
+Basta criar a funcao no componente pai e enviar como prop para o componente
+
+no componente filho ela pode ser ativada por um evento 

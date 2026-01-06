@@ -1,0 +1,11 @@
+Iterar listas sem a propriedade key nos gera um warning, podemos verificar isso no console
+
+o React precisa de uma chave unica em cada um dos itenms iterados
+
+Isso serve para ajuda-lo na renderizacao do componente
+
+geralmente teremos uma array de objetos e podemos colocar key como 
+alguma chave unica, como o id de algum dado
+
+em ultimo caso devemos utilziar o index do metodo map
+

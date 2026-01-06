@@ -1,0 +1,303 @@
+.home {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  color: #eaeaea;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: #b5b5b5;
+}
+
+.create {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f9cff, #2563eb);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.search {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 10px;
+}
+
+.search input {
+  flex: 1;
+  min-width: 240px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #eaeaea;
+}
+
+.search button {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f9cff, #2563eb);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: #0f0f0f !important;
+  border: 1px solid #2a2a2a !important;
+  color: #eaeaea !important;
+}
+
+.filterInfo {
+  margin: 8px 0 18px;
+  color: #b5b5b5;
+}
+
+.feed {
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.authorRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.meta {
+  margin: 6px 0 0;
+  color: #b5b5b5;
+  font-size: 13px;
+}
+
+.open {
+  color: #4f9cff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.image {
+  margin: 14px 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+}
+
+.image img {
+  width: 100%;
+  display: block;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.content {
+  margin: 0;
+  color: #eaeaea;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  flex: 0 0 auto;
+}
+
+.avatarButton {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #cfe7ff;
+  background: #0f0f0f;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.tag {
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #cfe7ff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.commentsBox {
+  margin-top: 14px;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 999;
+}
+
+.modal {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 16px;
+  border: 1px solid #2a2a2a;
+  background: #141414;
+  padding: 18px;
+  color: #eaeaea;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.metaModal {
+  margin: 4px 0 0;
+  color: #b5b5b5;
+}
+
+.userPosts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.userPostItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #eaeaea;
+  text-decoration: none;
+}
+
+.userPostItem:hover {
+  border-color: #4f9cff;
+}
+
+.userPostTitle {
+  font-weight: 700;
+}
+
+.userPostMeta {
+  font-size: 12px;
+  color: #b5b5b5;
+}
+
+.linkIcon {
+  color: #4f9cff;
+}
+
+.muted {
+  color: #b5b5b5;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalActions .secondary {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  color: #eaeaea;
+  cursor: pointer;
+}
+.modalActions .secondary:hover {
+  filter: brightness(1.05);
+}
+
+.empty {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  background: #141414;
+}
+
+.empty a {
+  color: #4f9cff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.error {
+  color: #ff6b6b;
+}

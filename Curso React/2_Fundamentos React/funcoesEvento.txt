@@ -1,0 +1,6 @@
+Quando as funcoes sao simples, podemos realizar a logica no proprio evento
+
+isso torna nosso codigo mais complicado, por atrelar logica com html
+
+mas em algumas situacoes e aplicavel
+

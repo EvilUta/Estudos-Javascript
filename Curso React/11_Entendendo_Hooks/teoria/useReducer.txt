@@ -1,0 +1,5 @@
+O useReducer tem a mesma funcao que o useState, ele gerencia valores
+
+Porem temos a possibilidade de executar uma funcao na hora da alteracao de valores
+
+entao temos que o useReducer recebe um valor para gerenciar e uma funcao para alterar este valor

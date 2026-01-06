@@ -1,0 +1,10 @@
+O provider vai delimitar onde o contexto e utilizado
+
+vamos criar uma especie de componente com a pro children
+
+e este provider deve encapsular os demais componentes em que precisamos consultar ou alterar o valor
+
+geralmente ele fica em app.js ou em index.js
+
+agora poderemos compartilhar o valor do contexto em todos os componentes
+

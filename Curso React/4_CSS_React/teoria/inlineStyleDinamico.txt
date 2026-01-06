@@ -1,0 +1,5 @@
+O css dinamico inline aplica estilo baseado em uma condicional
+
+vamos inserir no atributo um if ternario
+
+Dependendo da condicao podemos mudar que regras de estilo um elemento recebe

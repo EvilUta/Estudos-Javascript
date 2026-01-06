@@ -1,0 +1,9 @@
+Recursos do React que tem diversas funcoes
+
+como guardar e alterar o estado de algum dado na nossa aplicacao
+
+todos os hooks comecam com use, por exemplo: useState
+
+podemos criar os nossos hooks, isso e chamado de custom hooks
+
+os hooks precisam ser importados 

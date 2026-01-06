@@ -1,0 +1,10 @@
+O useEffect faz com que determinada acao seja executada apenas uma vez
+
+isso e interessante pois os componentes estao sempre se re-renderizando
+entao precisamos ter acoes unicas as vezes
+
+o useEffect ainda possui um array de dependencia, que deve conter os dados
+que ativem a execucao da funcao de forma automatica
+
+o useEffect estara presente sempre nas requiscoes assincronas
+

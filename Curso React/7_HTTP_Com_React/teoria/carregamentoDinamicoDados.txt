@@ -1,0 +1,5 @@
+Se a requisicao foi feita com sucesso, podemos adicionar o item a lista apos o request
+
+isso torna nossa aplicacao mais perfomatica
+
+utilizaremos o set do useState para isso

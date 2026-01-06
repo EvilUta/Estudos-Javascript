@@ -1,0 +1,9 @@
+O node.js e uma runtime de javascript
+
+ou seja uma biblioteca utilizada por compilador durante a execucao do programa
+
+que esta construida na V8 engine (escrita em c++) da google
+
+possibilitando criar softwares em JS no lado do servidos
+
+temos entao um codigo js rodando em c++ para garantir alta perfomace

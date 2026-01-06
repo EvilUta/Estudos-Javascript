@@ -1,0 +1,6 @@
+O hooke de useState e um dos mais utilzados
+
+utilizamos para gerenciar o estado de algum dado, variaveis nao funcionam corretamente, o componenente nao re-renderiza
+
+para guardar o dado definimos o nome da variavel e para alterar vamos utilizar
+setNome, onde nome e o nome do nosso dado

@@ -1,0 +1,9 @@
+Template expressions e o recurso que nos permite executar js no jsx e 
+tambem interpolar variaveis
+
+isso sera muito util ao longo dos seus projetos em react 
+
+a sintaxe e: { algumCodigoEmJs}
+
+Tudo que esta entre chaves e processado em javascript e nos retorna um resultado
+

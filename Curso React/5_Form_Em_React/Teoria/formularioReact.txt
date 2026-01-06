@@ -1,0 +1,5 @@
+No react vamos tambem utilizar a tag form para formularios 
+
+as labels dos inputs contem o atributo htmlFor, que deve ter o valor do name do inputs
+
+nao utilizamos action, pois o processamento sera feito de forma assincrona 

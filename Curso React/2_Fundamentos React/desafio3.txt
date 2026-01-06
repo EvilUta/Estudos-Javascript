@@ -1,0 +1,3 @@
+Crie um projeto para a nova secao
+limpe o arquivo do componente principal
+e por fim coloque o titulo de secao 3

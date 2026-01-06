@@ -1,0 +1,5 @@
+Sera um projeto de jogo de advinhacao
+
+com 3 chances e layout bonito 
+
+pontuacoes e etc

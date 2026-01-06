@@ -1,0 +1,7 @@
+Para manipular os valores dos inputs vamos utilziar o hook useState
+
+ou seja, podemos armazenar na variavel e utilizar o set para alterar o valor
+
+vamos criar uma funcao para alterar o valor no evento onChange
+
+Deixando nosso codigo facil de trabalhar nas proximas etapas: como envio dos dados bara BD e validacao

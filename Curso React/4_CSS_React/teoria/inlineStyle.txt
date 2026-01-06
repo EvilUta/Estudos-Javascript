@@ -1,0 +1,7 @@
+O inline style React e igual o do CSS
+
+Por meio de atributo style conseguimos aplicar regras diretamente em um elemento
+
+devemos optar por outras maneiras de CSS, o inline pode dificultar aplicar a manutencao ou deixar O
+codigo imprevisivel em algumas situacoes
+

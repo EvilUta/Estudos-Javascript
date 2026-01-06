@@ -1,0 +1,9 @@
+Os eventos para o frontend sao essenciais
+
+em varias situacoes vamos precisar do click, como enviar
+formularios
+
+no react os eventos ja estao ativos, podemos utilizar onClick para
+ativar uma funcao ao clicar em um elemento
+
+esta funcoes geralmente tem o padrao handgleAlgumaCoisa

@@ -1,0 +1,8 @@
+O CSS Modules e um recurso de css scoped
+
+ou seja, ele vai ser exclusivo do componente
+
+o nome do arquivo e: Componente.module.css
+
+precisamos importalo tambem para o componente 
+

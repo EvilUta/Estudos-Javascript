@@ -1,0 +1,5 @@
+Podemos tratar os erros das requisicoes por meio de um try catch
+
+alem de pegar os dados do erro, tambem podemos alterar um state para imprimir um elemento se algo der errado
+
+desta maneira conseguimos prever varios cenarios dados resgatados, carregamento e erro

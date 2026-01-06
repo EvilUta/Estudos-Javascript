@@ -1,0 +1,6 @@
+Uma estrategia interessante para algumas situacoes e utilizar o useEffect
+apenas uma vez
+
+para isso apenas precisamos deixar o array de dependencias vazio
+
+ao renderizar o componente a logica sera executada 

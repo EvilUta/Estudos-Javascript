@@ -1,0 +1,14 @@
+O npm e um gerenciador de pacotes de node
+
+vamos poder utilizar bibliotecas de terceeiros, baixando elas pelo npm
+
+e tambem executar determinados scripts no nosso programa
+
+dificilmente um software em node.js nao utiliza npm
+
+os modulos externos ficam numa pasta chamada node_modules
+
+ela deve ser descartavel, ou seja, a cada instalacao do projetos baixamos
+todoso os pacotes novamente
+
+o mais utilizado e o express

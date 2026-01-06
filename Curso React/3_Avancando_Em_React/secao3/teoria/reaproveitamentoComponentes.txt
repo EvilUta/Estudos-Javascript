@@ -1,0 +1,6 @@
+Com props a reutilizacao de componentes comeca a fazer muito sentido
+
+se temos os dados de 1000 carros por exemplo, podemos reaproveitar o nosso carDetails 1000 vezes
+
+isso torna nosso codigo mais padronizado, facilitando a manutencao
+

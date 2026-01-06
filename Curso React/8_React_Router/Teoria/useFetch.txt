@@ -1,0 +1,5 @@
+Vamos exercitar novamente o carregamento de dados com nosos hook useFetch
+
+Depois poderemos utiliza-los para o carregamento de dados individuais
+
+utilizaremos o hook igual ao da ultima secao e vamos imprimir produtos na home da mesma forma

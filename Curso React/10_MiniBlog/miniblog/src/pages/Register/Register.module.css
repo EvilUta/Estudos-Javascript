@@ -1,0 +1,132 @@
+.register {
+  max-width: 420px;
+  margin: 48px auto;
+  padding: 36px;
+  background: #141414;
+  border-radius: 18px;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* Título */
+.register h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #f1f1f1;
+}
+
+/* Subtítulo */
+.register p {
+  text-align: center;
+  font-size: 14px;
+  color: #b5b5b5;
+  margin-bottom: 30px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Label */
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Texto do label */
+.form span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #cfcfcf;
+}
+
+/* Inputs */
+.form input {
+  padding: 13px 14px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  background-color: #0f0f0f;
+  color: #eaeaea;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input::placeholder {
+  color: #6f6f6f;
+}
+
+/* Focus */
+.form input:focus {
+  outline: none;
+  border-color: #4f9cff;
+  box-shadow: 0 0 0 3px rgba(79, 156, 255, 0.25);
+}
+
+/* Botão */
+.form button {
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #4f9cff, #2563eb);
+  color: #ffffff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+/* Hover */
+.form button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(79, 156, 255, 0.45);
+}
+
+/* Active */
+.form button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(79, 156, 255, 0.35);
+}
+
+/* Disabled / Loading */
+.form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  box-shadow: none;
+}
+
+/* Mensagem de erro */
+.register .error {
+  color: #ff6b6b;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Autofill Chrome */
+.form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #0f0f0f inset !important;
+  -webkit-text-fill-color: #eaeaea !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.form input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #0f0f0f inset !important;
+  -webkit-text-fill-color: #eaeaea !important;
+}
+
+.register .success {
+  color: #4ade80; /* verde bonito */
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}

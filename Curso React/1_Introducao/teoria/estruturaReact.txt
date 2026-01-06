@@ -1,0 +1,11 @@
+Ha algumas pastas e arquivos chave para o desenvolvimento em React
+
+NODE_MODULES -> onde as dependecias do projeto ficam
+
+public: assets estativos e html de incializacao
+
+src: onde vamos programar as nossas apps
+
+src/index.js: arquivo de incializacao react
+
+src/App.js: main componentes

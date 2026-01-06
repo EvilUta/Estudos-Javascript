@@ -1,0 +1,7 @@
+Uma outra acao bem comum e renderizar listas de dados no template
+
+fazemos isso com os dados com tipo de array
+
+utilizando o metodo map para nos auxiliar
+
+alem dos dados podemos inserir JSX  em cada interacao

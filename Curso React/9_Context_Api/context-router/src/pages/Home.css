@@ -1,0 +1,38 @@
+.page {
+  text-align: center;
+}
+
+/* Contador */
+.page p {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px; /* espaço entre texto e botão */
+}
+
+/* Botão embaixo */
+.page button {
+  display: block;        /* força ir para baixo */
+  margin: 0 auto;        /* centraliza */
+  padding: 12px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: #3b82f6;
+  color: #ffffff;
+
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.page button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(59, 130, 246, 0.45);
+}
+
+.page button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.3);
+}

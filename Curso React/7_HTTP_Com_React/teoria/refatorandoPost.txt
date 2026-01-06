@@ -1,0 +1,7 @@
+Podemos utilizar o mesmo hook para incluir uma etapa de POST
+
+Vamos criar um novo useEffect que mapeia uma outra mudanca de estado
+
+Apois ela ocorrer executamos a adicao de produto
+
+obs nem sempre reutilizar um hook e a melhor estrategia

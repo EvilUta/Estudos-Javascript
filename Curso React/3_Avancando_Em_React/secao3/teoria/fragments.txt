@@ -1,0 +1,6 @@
+Os react fragments sao interessantes para quando precisamos ter mais 
+de um elemento pai em um componente 
+
+criamos uma tag vazia <> </>
+
+e ela serve como elemento pai, nao alterando a estrutura do html com uma div

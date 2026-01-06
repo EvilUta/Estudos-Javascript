@@ -1,0 +1,150 @@
+.profile {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 24px;
+  color: #eaeaea;
+}
+
+.profile h1 {
+  margin: 0 0 8px;
+}
+
+.profile p {
+  margin: 0 0 18px;
+  color: #b5b5b5;
+}
+
+.card {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #cfe7ff;
+}
+
+.name {
+  font-weight: 800;
+}
+
+.email {
+  font-size: 13px;
+  color: #b5b5b5;
+  margin-top: 4px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form span {
+  font-size: 13px;
+  color: #cfcfcf;
+}
+
+.form input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #eaeaea;
+}
+
+.form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #eaeaea;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form button {
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f9cff, #2563eb);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.counter {
+  font-size: 12px;
+  color: #b5b5b5;
+}
+
+.actionsRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.preview {
+  margin-top: 6px;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f0f0f;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.success {
+  color: #86efac;
+  margin: 0;
+}
+
+.error {
+  color: #ff6b6b;
+  margin: 0;
+}

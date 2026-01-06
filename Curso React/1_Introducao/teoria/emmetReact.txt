@@ -1,0 +1,3 @@
+emmet e uma extensao nativa do vs code q ajuda a escrever html
+
+file -> setting -> extensions 

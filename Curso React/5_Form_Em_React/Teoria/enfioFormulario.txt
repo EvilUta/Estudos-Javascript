@@ -1,0 +1,7 @@
+Para enviar um form vamos utilizar o evento onSubmit
+
+Ele chamara uma funcao, e nesta devemos lembrar de parar a 
+submissao com o preventDefault
+
+Nesta etapa podemos realizar validacoes, envio de form para o servidor, reset
+de form e outras acoes

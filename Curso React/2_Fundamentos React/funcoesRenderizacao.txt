@@ -1,0 +1,5 @@
+Podemos criar funcoes que retornam JSX
+
+Isso serve para criar situacoes que dependam de outras condicoes
+
+ou seja, o jsx a ser renderizado pode varias por alguma variavel, por exemplo

@@ -1,0 +1,4 @@
+Podemos bloquear acoes indevidas em outras requests tambem, como no POST
+
+Uma acao interessante e remover a acao de adicionar outro item
+enquanto o requests ainda nao finalizou

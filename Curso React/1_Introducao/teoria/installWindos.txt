@@ -1,0 +1,11 @@
+O downloado no node.js e feito no site oficial nodejs.org
+
+vamos baixar um arquivo .msi que o instalador
+
+e interessante saber q o npm vem junto do node
+
+apos a instalcao podemos testar o node e npm em um terminal para validar a instalacao
+
+note q os binaraios precisam estar no path, este passo na intalcao do node
+
+no meu caso ja esta baixado

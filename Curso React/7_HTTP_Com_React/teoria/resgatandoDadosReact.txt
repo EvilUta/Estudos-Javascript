@@ -1,0 +1,8 @@
+Para trazer os dados vamos ter que utilizar varios recursos
+
+Primeiramente ter um local para salvalos (useState)
+
+Renderizar a chamada a API apenas uma vez (useEffect)
+
+um meio de fazer a requisao assincrona (fetch API)
+

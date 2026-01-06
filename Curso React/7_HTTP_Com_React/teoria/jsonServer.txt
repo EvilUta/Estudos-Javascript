@@ -1,0 +1,9 @@
+O json server e um pacote npm
+
+Ele simula uma API, isso nos possibilita fazer requisicoes HTTP
+
+Vamos aprender a integrar este recurso com o React
+
+Podemos entender isso como uma etapa de preparacao para APIS reais
+
+Ou seja, atingir o mesmo resultado mas sem precisar de uma estrutura no backend

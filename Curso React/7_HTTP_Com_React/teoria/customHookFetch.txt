@@ -1,0 +1,9 @@
+E normal dividir funcoes que podem ser reaproveitadas em hooks
+
+Esta tecnica e chamada de custom hook, e vamos criar um para o resgate de dados
+
+os hooks geralmente ficam na pasta hooks
+
+devemos utilizar o padrao useName
+
+Basicamente criamos uma funcao e exportamos ela

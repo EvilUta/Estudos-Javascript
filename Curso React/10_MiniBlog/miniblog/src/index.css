@@ -1,0 +1,45 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== TEMA DARK ===== */
+:root {
+  --bg-color: #0f0f0f;
+  --surface-color: #141414;
+  --text-color: #eaeaea;
+  --text-muted: #b5b5b5;
+  --primary-color: #4f9cff;
+  --border-color: #2a2a2a;
+}
+
+/* Background geral */
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}

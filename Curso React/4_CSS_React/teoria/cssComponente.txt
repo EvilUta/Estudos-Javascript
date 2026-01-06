@@ -1,0 +1,10 @@
+O CSS do componente e utilizado para um componente em especifico
+
+Geralmente e criado um arquivo com o mesmo nome do componente
+e este e importado no componente
+
+Note que este metodo nao e escoped, ou seja, o css vaza para outros
+componentes se houver uma regra em colisao
+
+o react ja cria um exemplo desta tecnica com o app.css/js
+

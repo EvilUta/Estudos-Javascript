@@ -1,0 +1,9 @@
+Podemos tambem aplicar logica para mudar a classe de CSS de um elemento
+
+tambem utilizaremos o if ternario
+
+essa abordagem e mais interessante que o css inline
+
+pois as classes estarao isoladas no arquivo de css , resolvendo o
+problema d eorganizacao de codigo
+

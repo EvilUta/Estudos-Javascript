@@ -1,0 +1,9 @@
+No match route 404
+
+Podemos criar uma pagina 404 facilmente com o React Router
+
+Basta criarmos o componente a pagina
+
+E no Arquivo App.js definir um path como *
+
+Desta maneira, qualquer rota que nao exita caira neste componente

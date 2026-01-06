@@ -1,0 +1,5 @@
+Para alterar o valor do contexto precisamos criar um componente que utilize a funcao da mudanca de contexto
+
+Esta mudanca ocorrera no Context e podesera ser consumida por todos os componentes que recebm o contexto
+
+e assim finalizamos o ciclo da context api

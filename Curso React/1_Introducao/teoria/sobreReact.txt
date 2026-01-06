@@ -1,0 +1,12 @@
+React e uma biblioteca JavaScript para desenvolvimento
+front-end
+
+estas aplicacoes sao chamadas de SPA (Single Page Application)
+
+arquiteura do react e baseada em componentes
+
+pode ser inserido em um aplicacao ou podemos criar a aplicacao
+apenas com react
+
+mantido pelo facebook
+

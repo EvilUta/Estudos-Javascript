@@ -1,0 +1,10 @@
+React Roter e um dos apcotes mais utilizados para criar uma estrutura de rotas em aplicacoes de React
+
+Ou seja, permite que nossas SPAs tenham multiplas paginas
+
+Precisamos instalar no nosso projeto
+
+A configuracao e utilizacao e simples
+
+Tambem temos outras funcoes como: Redirect, nested routes , not found routes e outros
+

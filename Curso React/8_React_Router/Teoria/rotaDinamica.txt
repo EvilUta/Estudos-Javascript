@@ -1,0 +1,7 @@
+Para criar uma rota dinamica vamos precisar definir uma nova Route em App.js
+
+Que dete ter o padrao de /products/:id
+
+onde o :id e o dado dinamico, ou seja, podemos ter qualquer valor
+
+na pagina podemos utilizar o hook useParams para resgatar esta informacao

@@ -1,0 +1,6 @@
+Outra maneira de controlar quando o useEffect sera executado e colocando algum item no array de dependencias
+
+assim sempre que o item for alterado, teremos o useEffect sendo executado novamente
+
+Nos fornecendo um maior controle de quando a funcao deve ser ou nao ser executada
+

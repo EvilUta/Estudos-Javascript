@@ -1,0 +1,22 @@
+.footer {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #2a2a2a;
+  margin-top: auto;
+}
+
+
+.footer p {
+  color: #cfcfcf;
+  font-size: 14px;
+}
+
+.footer span {
+  color: #4f9cff;
+  font-weight: 600;
+}

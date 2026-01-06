@@ -1,0 +1,6 @@
+Podemos criar um hook para utilizar o contexto, isso nos da algumas vantagens
+
+nao precisamos importar o useContext em todos os lugares que vamos usar o contexto, so o hook
+
+temos um espaco para fazer uma validacao do contexto
+

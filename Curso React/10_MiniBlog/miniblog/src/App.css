@@ -1,0 +1,12 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+.container {
+  flex: 1;
+  padding: 32px;
+  background-color: var(--surface-color);
+}

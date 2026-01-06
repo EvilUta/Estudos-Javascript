@@ -1,0 +1,3 @@
+As imagens publicas do nosso projeto podem ficar na pasta publicas
+de la elas podem ser chamadas pelas tags img diretamente pelo /nome.jpg
+pos a pasta public fica linkada com o src das imagens

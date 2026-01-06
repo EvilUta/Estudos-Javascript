@@ -1,0 +1,8 @@
+Props e outro recurso fundamental do React
+
+Nos permite passar valores de um componente pai para um componente filho
+
+isso sera muito util quando os dados forem carregados via banco de dados
+
+as props vem em um objeto no argumento da funcao de componente
+

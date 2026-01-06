@@ -1,0 +1,8 @@
+Atrelando o UseState a um input podemos fazer algumas acoes
+
+Alteracao de um state por evento de onChange
+
+Limpeza de inputs (controlled input)
+
+Apos preenchimento total do form, unir os states e fazer um envio dos dados para o back end
+

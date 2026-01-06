@@ -1,0 +1,6 @@
+Os arrays de dados podem ter muitos itens tambem
+
+entao o correto e utilziar uma estrutura de loop (map) para a sua exibicao
+
+e com isso conseguimos conciliar os tres conceitos: renderizacao de 
+listas, reaproveitamento de componentes e props 

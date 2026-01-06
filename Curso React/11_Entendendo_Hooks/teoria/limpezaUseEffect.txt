@@ -1,0 +1,5 @@
+Alguns efeitos precisam ter uma tecnica de cleanup para garantir o seu funcionamento
+
+nao fazer isso pode gerar erros ou comportamentos indesejados
+
+exemplo um timeout que ao mudar de pagina pode continuar a ser executado pela falta desta limpeza 

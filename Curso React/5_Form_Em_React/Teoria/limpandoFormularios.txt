@@ -1,0 +1,5 @@
+Com o controller inputs limpar o form sera facil
+
+basta atribuit um valor de uma string vazia aos states e pronto
+
+isso sera feito apos o envio, em formularios que o usuario precisa preencher novamente

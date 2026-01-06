@@ -1,0 +1,7 @@
+Renderizacao condicional e quando imprimimos uma parte do template
+baseado em uma condicional
+
+ou seja, utilizando uma checagem com if
+
+isso e interessante em situacoes como: usuario autenticado/nao autenticado
+

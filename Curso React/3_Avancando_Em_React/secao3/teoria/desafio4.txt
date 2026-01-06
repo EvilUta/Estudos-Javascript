@@ -1,0 +1,7 @@
+1 - Crie um array de objetos compostos de pessoas, com as propriedades de: nome, idade e profissao (array com pelo menos 3 itens)
+
+2 - Os dados devem ser exibidos em um componente User Details, que você deve criar, todas as informações devem ser exibidas
+
+3 - Faça uma renderização condicional que exibe se o usuario pode tirar carteira de habilitação ou não, imprima isso também no componente 
+
+4 - A informações pode ser exibidas num paragrafos (checar se idade >=18)

@@ -1,0 +1,5 @@
+Quando temos varios inputs podemos realizar a manipulacao de forma mais simples
+
+Basicamente criamos uma funcao inline no onChange
+
+Ela vai alterar o valor do state com o metodo set, da mesma forma q a funcao isolada

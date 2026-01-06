@@ -1,0 +1,39 @@
+.end {
+  text-align: center;
+  margin-top: 80px;
+  color: white;
+}
+
+.end h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.end .word,
+.end .category,
+.end .score {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.end .word strong {
+  letter-spacing: 1px;
+}
+
+.end button {
+  background: #0d6efd;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s;
+  margin-top: 16px;
+}
+
+.end button:hover {
+  background: #0b5ed7;
+  transform: scale(1.05);
+}

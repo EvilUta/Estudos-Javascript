@@ -1,0 +1,7 @@
+podemos precisar de um redirecionamento de paginas eventualmente
+
+exemplo uma pagina antiga do sistema responde agora e uma url
+
+para isso vamos criar a rota com Route normalmente
+
+mas em element vamos utilizar o componente navigate com um to que vai para rota correta

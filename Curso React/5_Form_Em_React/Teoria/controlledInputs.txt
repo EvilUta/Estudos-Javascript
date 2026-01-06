@@ -1,0 +1,5 @@
+Controlled inputs e um recurso que nos permite mais flexibilidade nos forms de React
+
+Precisamos apenas igualar o valor ao state
+
+Em uso muito comum: formulario de edicao, que os dados vem do backend, conseguiremos preencher o input mais facilmente

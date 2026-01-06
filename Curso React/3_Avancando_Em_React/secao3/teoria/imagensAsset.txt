@@ -1,0 +1,8 @@
+A pasta public pode ser utilizada para colocar imagens como na aula passada
+
+mas um padrao bem utilizada para as imagens dos projetos e colocar em uma pasta chamada assets em src
+
+ou seja voce vai encontrar projetos com as duas abordagens
+
+em assets precisamos importar as imagens e o src e dinamico com o nome da importacao
+

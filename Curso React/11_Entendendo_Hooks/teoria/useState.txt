@@ -1,0 +1,7 @@
+O UseState e um dos principais hooks do React
+
+O principal e gerenciar valores 
+
+Poderemos consultar um valor e alterar
+
+Isso nos permite re-renderizar um componente, o que nao acontece com a manipulacao de variaveis

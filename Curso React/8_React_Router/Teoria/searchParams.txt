@@ -1,0 +1,6 @@
+Search Params e um recurso que permite obter o que vem na URL em 
+forma de parametro, ex:produtos?q=camisa
+
+utilizamos o hook useSearchParams para obte-los
+
+com este recurso fica simples fazer uma funcionalidade de busca no sistema

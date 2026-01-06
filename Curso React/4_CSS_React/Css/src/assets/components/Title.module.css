@@ -1,0 +1,13 @@
+.myTitle {
+  color: blue;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.myParagraph {
+  color: white;
+  background-color: green;
+  padding: 8px;
+  border-radius: 6px;
+}

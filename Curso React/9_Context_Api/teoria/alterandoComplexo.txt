@@ -1,0 +1,7 @@
+Para altear o contexto vamos utilizar uma funcao chamada dispatch
+
+ele estara no reducer tambem
+
+e deve conter todas as informacoes necessarias para a alteracao do valor do contexto
+
+ou seja, o switch entra em acao e retorna um novo contexto

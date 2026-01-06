@@ -1,0 +1,10 @@
+Contextos mais complexos podem ter variaveos no comportamento
+
+para isso vamos utilizar um hook chamado useReducer
+
+que e como um useState, mas para controle de dados complexos
+
+no reducer termeos diferentes acoes com um switch
+
+e na aplicacao vamos consumir o estado atual do dado q esta no reducer
+

@@ -1,0 +1,6 @@
+O select tambem sera muito semelhante aos outros inputs
+
+quando temos a alteracao de um valor o evento onChange pode captar isso
+
+o value tambem pode atribuir qual option estara selecionada
+

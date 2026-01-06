@@ -1,0 +1,9 @@
+Crie um novo projeto para esta unidade
+
+instale o modulo do react route neste projeto, que e o: react-router-dom
+
+instale tambem o json server
+
+coloque pelo menos tres produtos da secao anterior no seu arquivo de db.json
+
+crie um scrip para iniciliar o json server

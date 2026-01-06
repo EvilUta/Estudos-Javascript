@@ -1,0 +1,5 @@
+Os componentes que criamos podem ser reutilizados em varios
+componentes
+
+e ainda componentes podem formar uma hierarquia, sendo importados
+uns dentro dos outros, como fizemos em app

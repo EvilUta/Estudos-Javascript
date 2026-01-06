@@ -1,0 +1,8 @@
+Label envolvendo o input
+
+Em react um padrao comum e a tag label envolvendo o input
+
+isso faz com que o atributo for se torne opcional
+
+simplificando nossa estrutura de html sem perder a semantica
+

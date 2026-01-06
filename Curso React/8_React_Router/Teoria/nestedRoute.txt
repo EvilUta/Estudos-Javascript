@@ -1,0 +1,7 @@
+As nested routes indicam URLs mais complexas, como
+/products/:id/something
+
+neste caso vamos precisar criar um componente que corresponda com o padrao indicado
+e tambem a URL em app.js
+
+na nested route teremos o acesso ao parametro da url tambem

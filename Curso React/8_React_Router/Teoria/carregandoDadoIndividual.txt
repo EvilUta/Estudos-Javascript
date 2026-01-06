@@ -1,0 +1,8 @@
+Gracas ao passo dado na aula passada o carregamento individual de um produto sera facil
+
+vamos utilizar o id recebido para formar a nova utilizar
+
+e por fim podemos utilizar o hook useFetch para trazer o item
+
+por fim faremos a validacao e impressao do mesmo no jsx
+

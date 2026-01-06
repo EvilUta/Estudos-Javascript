@@ -1,0 +1,10 @@
+na maioria dos projetos os componentes ficam em uma pasta chamada components
+
+geralmente sao nomeadas com a camel case: FirstComponent.js
+
+no arquivo criamos uma funcao, que contem o codigo deste componentes(a logica e o template)
+
+e tambem precisamos exportar esta funcao, para reutiliza-lo
+
+vamos ver na pratica!
+

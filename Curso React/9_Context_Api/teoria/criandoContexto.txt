@@ -1,0 +1,8 @@
+Primeiramente vamos ter que criar o context
+
+o Arquvio deve sempre ter a primeira letra MAIUSCULA no nome, e geralmente
+termina em ContextÇ SomeContext.js
+
+A convencao e deixar na pasta context em SRC
+
+Onde vamos utilizr o valor do contexto, o arquivo precisa ser importado

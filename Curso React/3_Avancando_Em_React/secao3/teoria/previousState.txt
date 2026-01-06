@@ -1,0 +1,8 @@
+Previous state e um recurso que nos permite pegar o dado em seu valor
+original dentro de um set de dado
+
+isso e muito utilizado para modificar listas, pos temos o valor antigo em
+transformamos em um valor novo
+
+o primeiro argumento de um set sempre sera o previous state
+
